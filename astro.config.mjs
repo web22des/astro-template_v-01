@@ -1,19 +1,22 @@
 import { defineConfig } from "astro/config";
 
-// Определение режима работы
-const isDev = process.env.NODE_ENV === "development";
-const isPreview = process.argv.some((arg) => arg.includes("preview"));
+// Умное определение base URL
+const getBase = () => {
+    if (process.env.NODE_ENV === "development") return "/";
+    if (process.argv.includes("preview")) return "/";
+    return "/astro-template_v-01/";
+};
 
 export default defineConfig({
     site: "https://web22des.github.io",
-    base: isDev || isPreview ? "/" : "/astro-template_v-01/",
+    base: getBase(),
     outDir: "dist",
     vite: {
         css: {
             devSourcemap: true,
             postcss: {
                 plugins: [
-                    // Автопрефиксы
+                    // Автопрефиксы (встроенная реализация)
                     {
                         postcssPlugin: "autoprefixer",
                         prepare() {
@@ -32,12 +35,28 @@ export default defineConfig({
                             };
                         },
                     },
+                    // Минификация (встроенная)
+                    {
+                        postcssPlugin: "cssnano",
+                        Once(root) {
+                            if (process.env.NODE_ENV === "production") {
+                                root.walkDecls((decl) => {
+                                    decl.value = decl.value.replace(/\s+/g, " ");
+                                });
+                            }
+                        },
+                    },
                 ],
             },
         },
         build: {
-            cssMinify: true,
-            minify: "terser",
+            cssMinify: true, // Дополнительная минификация
+            assetsInlineLimit: 0, // Отключаем встраивание CSS
+            rollupOptions: {
+                output: {
+                    assetFileNames: "assets/[name][extname]", // Чистые имена файлов
+                },
+            },
         },
     },
 });
