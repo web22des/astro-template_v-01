@@ -1,25 +1,25 @@
-/* Далее настройка минификации и добавление автопрефиксов */
-// @ts-check
 import { defineConfig } from "astro/config";
+
+// Определение режима работы
+const isDev = process.env.NODE_ENV === "development";
+const isPreview = process.argv.some((arg) => arg.includes("preview"));
 
 export default defineConfig({
     site: "https://web22des.github.io",
-    base: process.env.NODE_ENV === "production" ? "/astro-template_v-01/" : "/",
+    base: isDev || isPreview ? "/" : "/astro-template_v-01/",
     outDir: "dist",
     vite: {
         css: {
             devSourcemap: true,
             postcss: {
-                // Встроенные плагины PostCSS, доступные через Vite
                 plugins: [
-                    // Автопрефиксы через встроенный обработчик
+                    // Автопрефиксы
                     {
                         postcssPlugin: "autoprefixer",
                         prepare() {
                             return {
                                 Once(root) {
                                     root.walkDecls((decl) => {
-                                        // Простейший автопрефиксер для основных свойств
                                         if (decl.prop === "display" && decl.value === "flex") {
                                             decl.cloneBefore({ prop: "display", value: "-webkit-box" });
                                             decl.cloneBefore({ prop: "display", value: "-ms-flexbox" });
@@ -32,21 +32,11 @@ export default defineConfig({
                             };
                         },
                     },
-                    // Базовая минификация через Vite
-                    {
-                        postcssPlugin: "cssnano",
-                        Once(root) {
-                            root.walkDecls((decl) => {
-                                // Удаление пробелов
-                                decl.value = decl.value.replace(/\s+/g, " ");
-                            });
-                        },
-                    },
                 ],
             },
         },
         build: {
-            cssMinify: true, // Основная минификация через esbuild
+            cssMinify: true,
             minify: "terser",
         },
     },
