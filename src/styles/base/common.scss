@@ -4,10 +4,10 @@
 // @use "./mixins/grid.scss" as grid;
 //
 body {
-    font-family: var(--font-family-base);
+    //font-family: var(--font-family-base);
     font-size: var(--font-size-base);
-    background-color: #302c42;
-    color: #f5edff;
+    background-color: var(--color-primary);
+    color: var(--color-text);
     line-height: var(--line-height-base);
 }
 // Обертка для прижания подвала книзу
