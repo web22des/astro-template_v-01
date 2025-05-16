@@ -1,0 +1,85 @@
+@use "../base/mixins/grid.scss" as grid;
+@use "../base/mixins.scss" as mix;
+.partners {
+    &__container {
+    }
+
+    &__header {
+        padding-top: 108px;
+        padding-bottom: 108px;
+        background-image: url(/images/content/partners-00.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        font-family: var(--font-family-heading);
+        font-size: var(--font-size-xxxl);
+        text-align: center;
+        border-radius: var(--border-radius-xl);
+        margin-bottom: 24px;
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    &__header-title {
+        font-weight: var(--font-weight-bold);
+        @media (max-width: mix.em(650)) {
+            font-size: var(--font-size-base);
+            margin-bottom: 14px;
+        }
+    }
+
+    &__header-subtitle {
+        font-weight: var(--font-weight-light);
+        @media (max-width: mix.em(650)) {
+            font-size: var(--font-size-xl);
+        }
+    }
+
+    &__card-group {
+        @include grid.grid-4-columns(24px);
+        align-items: center;
+        @media (max-width: mix.em(1200)) {
+            display: flex;
+            gap: 24px;
+            scroll-snap-type: x mandatory;
+            overflow-x: auto;
+            scrollbar-width: none; /* Firefox */
+            //-ms-overflow-style: none; /* IE */
+        }
+    }
+
+    &__card {
+        //width: 100%;
+        width: 300px;
+        text-align: center;
+        //
+        @media (max-width: mix.em(1200)) {
+            flex: 0 0 var(--card-width);
+            scroll-snap-align: start;
+            padding: 0 10px;
+        }
+    }
+
+    &__img {
+    }
+    &__button-wrap {
+        position: absolute;
+        bottom: -37%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+.section-title-wrap {
+}
+.visually-hidden {
+}
+.section-title {
+}
+.section-subtitle {
+}
+.button {
+}
+.button--fill {
+}
+.button--rounded {
+}

@@ -4,6 +4,11 @@ const title = "Главная"
 ---
 
 <PageLayout title={title}>
-	<slot/>
-	<p>Сейчас должен сгенерировать файл стилей</p>
+	<div class="hero">
+		<div class="hero__container">
+			<h1>{title}</h1>
+			<p>Сейчас должен сгенерировать файл стилей</p>
+
+		</div>
+	</div>
 </PageLayout>

@@ -1,0 +1,29 @@
+//@use "../base/variables.scss" as vars;
+
+.button {
+    padding: 16px 34px 16px 34px;
+    border-radius: 40px;
+    border: 2px solid #fff;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.button--fill {
+    color: #343045;
+    border-color: inherit;
+    background: var(--linear-gradient-base);
+}
+
+.button-rounded {
+    border-radius: var(--border-radius-full);
+    //width: var(--icon-size-md);
+    //height: var(--card-size-md);
+    background: var(--linear-gradient-base);
+    //padding: 12px;
+    ._icon-circle-down {
+        font-size: var(--font-size-md);
+        font-family: "icomoon";
+        color: var(--color-primary);
+        font-size: var(--icon-size-xl);
+    }
+}

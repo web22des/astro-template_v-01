@@ -1,0 +1,303 @@
+@use "../base/variables.scss" as vars;
+@use "../base/media.scss" as media;
+@use "../base/mixins.scss" as mix;
+@use "../base/mixins/grid.scss" as grid;
+
+.hero {
+    overflow: hidden;
+    &__container {
+        // position: relative;
+        // &::after {
+        //     content: ""; // Обязательно пустая строка
+        //     position: absolute;
+        //     height: 845px;
+        //     width: 65.72%; // 735px
+        //     background-image: url("/images/global/hero-bg.svg");
+        //     background-repeat: no-repeat;
+        //     background-size: cover; // или cover, в зависимости от задачи
+        //     //background-position: center;
+        //     top: 50%;
+        //     right: -44%;
+        //     transform: translate(-50%, -50%);
+        //     z-index: -1; // Если нужно, чтобы фон был под контентом
+
+        //     @media (max-width: mix.em(1024)) {
+        //         right: -30%;
+        //         top: 50%;
+        //         background-size: cover;
+        //     }
+        //     @media (max-width: mix.em(970)) {
+        //         //background-position: 50%, 50%;
+        //         top: 10%;
+        //         right: -50%;
+        //         width: 120%;
+        //     }
+        //     @media (max-width: mix.em(550)) {
+        //         top: 30%;
+        //         left: 40%;
+        //         width: 650px;
+        //     }
+        //     @media (max-width: mix.em(500)) {
+        //         left: 30%;
+        //         top: 25%;
+        //         // width: 450px;
+        //     }
+        // }
+    }
+
+    &__wrap {
+        display: flex;
+        justify-content: space-between;
+        @media (max-width: mix.rem(970)) {
+            flex-direction: column-reverse;
+            position: relative;
+        }
+        @media (max-width: mix.em(550)) {
+            max-width: 100%;
+            gap: 0;
+        }
+    }
+
+    &__col {
+        &:first-child {
+            position: relative;
+            z-index: 2;
+            @media (max-width: mix.em(970)) {
+                align-items: end;
+                background-color: rgba(33, 30, 46, 0.5);
+                border-radius: 24px;
+                border-bottom-left-radius: 60px;
+                border-top-left-radius: 230px;
+                display: flex;
+                flex-direction: column;
+                left: 68%;
+                padding: 24px;
+                position: absolute;
+                text-align: end;
+                top: 48%;
+                transform: translate(-50%, -50%);
+                width: 64%;
+            }
+            @media (max-width: mix.em(850)) {
+                width: 80%;
+                left: 60%;
+                top: 46%;
+
+                @media (max-width: mix.em(650)) {
+                    left: 50%;
+                    top: 70%;
+                }
+            }
+            @media (max-width: mix.em(550)) {
+                max-width: 100%;
+                width: 100%;
+                position: relative;
+            }
+        }
+    }
+
+    &__info-wrap {
+        padding-top: 34px;
+        max-width: 532px;
+        @media (max-width: mix.em(480)) {
+            max-width: 100%;
+        }
+        @media (max-width: mix.em(440)) {
+            padding-top: 64px;
+        }
+        @media (max-width: mix.em(410)) {
+            &:first-child {
+                padding-top: 24px;
+                // max-width: 100%;
+                // width: 100%;
+            }
+        }
+    }
+
+    &__title {
+        font-size: 48px;
+        //font-size: vars(--space-xxl); // 48px
+        font-family: vars(--font-family-heading);
+        font-weight: vars(--font-weight-bold);
+
+        margin-bottom: 36px;
+
+        @media (max-width: 1100px) {
+            font-size: 40px;
+        }
+        @media (max-width: mix.em(1020)) {
+            font-size: 36px;
+        }
+        @media (max-width: mix.em(850)) {
+            font-size: 32px;
+        }
+        @media (max-width: mix.em(500)) {
+            font-size: 28px;
+        }
+    }
+
+    &__subtitle {
+        font-size: vars(--font-size-base);
+        font-weight: vars(--font-weight-regular);
+        margin-bottom: 66px;
+        @media (max-width: mix.em(970)) {
+            margin-bottom: 16px;
+        }
+    }
+
+    &__btn-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    &__images {
+        padding-bottom: 100px;
+        position: relative;
+        &::after {
+            content: ""; // Обязательно пустая строка
+            position: absolute;
+            height: 136%; //845px;
+            width: 118%; //735px
+            //width: 65.72%; // 735px
+            background-image: url("/images/global/hero-bg.svg");
+            background-repeat: no-repeat;
+            background-size: cover; // или cover, в зависимости от задачи
+            right: -70%;
+            top: 40%;
+            transform: translate(-50%, -50%);
+            z-index: -1; // Если нужно, чтобы фон был под контентом
+            @media (max-width: mix.em(1400)) {
+                //display: none;
+            }
+            @media (max-width: mix.rem(1024)) {
+                //display: none;
+                right: -62%;
+                top: 37%;
+            }
+            @media (max-width: mix.em(970)) {
+                right: -63%;
+                top: 40%;
+            }
+            @media (max-width: mix.em(550)) {
+            }
+            @media (max-width: mix.em(500)) {
+            }
+        }
+        @media (max-width: mix.em(970)) {
+            width: 100%;
+        }
+    }
+
+    &__img {
+        min-width: 600px;
+        width: 100%;
+        @media (max-width: mix.em(1170)) {
+            min-width: 45%;
+        }
+    }
+
+    &__contacts {
+        border-radius: var(--border-radius-xl);
+        background: var(--color-bg-secondary);
+        box-shadow: 0px 4px 4px 0px rgba(192, 183, 232, 0.01);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: space-between;
+        @media (max-width: mix.em(1270)) {
+            @include grid.grid-2-columns(24px);
+            background: none;
+        }
+        @media (max-width: mix.em(950)) {
+            @include grid.grid-1-columns(24px);
+        }
+        @media (max-width: mix.em(768)) {
+            margin-top: mix.rem(-60);
+        }
+        @media (max-width: mix.em(650)) {
+            margin-top: -100px;
+        }
+    }
+
+    &__contacts-col {
+        padding: 52px 42px;
+        width: 100%;
+        position: relative;
+        &:not(:first-child)::before {
+            content: "";
+            position: absolute;
+            left: 0; // Размещаем слева от кнопки
+            top: 50%; // Центрируем вертикально
+            transform: translateY(-50%); // Точное центрирование
+            width: 1px; // Толщина линии (stroke-width)
+            height: 60%; // Высота линии (можно настроить, например, 20px)
+            background: rgba(192, 183, 232, 0.33); // Цвет из Figma (stroke)
+        }
+        @media (max-width: mix.em(1270)) {
+            padding: 26px 20px;
+            background: var(--color-bg-secondary);
+            border-radius: var(--border-radius-xl);
+            &::before {
+                display: none;
+            }
+        }
+        @media (max-width: mix.em(450)) {
+        }
+    }
+
+    &__contacts-wrap {
+        @media (max-width: mix.em(950)) {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        @media (max-width: mix.em(600)) {
+            display: block;
+        }
+    }
+    &__contacts-info {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        @media (max-width: mix.em(1100)) {
+            gap: 8px;
+        }
+        @media (max-width: mix.em(950)) {
+            //@include grid.grid-1-columns(8px);
+        }
+    }
+
+    &__contacts-info--left {
+    }
+
+    &__contacts-img {
+        @media (max-width: mix.em(450)) {
+            width: 32px;
+        }
+    }
+
+    &__contacts-title {
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-bold);
+        font-family: var(--font-family-heading);
+        margin-bottom: 12px;
+        @media (max-width: mix.em(950)) {
+            margin-bottom: 0;
+        }
+        @media (max-width: mix.em(600)) {
+            margin-bottom: 12px;
+        }
+        @media (max-width: mix.em(450)) {
+            font-size: var(--font-size-lg);
+            margin-bottom: 0;
+        }
+    }
+
+    &__contacts-subtitle {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-regular);
+    }
+
+    &__contacts-info--right {
+    }
+}

@@ -1,0 +1,148 @@
+/*  */
+@use "../base/mixins.scss" as mix;
+.contact-form {
+    &__container {
+        box-shadow: var(--shadow-md);
+        background: var(--radial-gradient-base);
+        border-radius: var(--border-radius-xl);
+        padding: clamp(2rem, 5vw, 90px) clamp(1rem, 5vw, 100px); /* Адаптивные отступы */
+    }
+    &__header {
+        font-family: var(--font-family-heading);
+        font-size: var(--font-size-xxxl);
+        text-transform: uppercase;
+        text-align: center;
+        @media (max-width: mix.em(650)) {
+            font-size: var(--font-size-xl);
+        }
+    }
+
+    &__title {
+        display: inline-block;
+        font-weight: var(--font-weight-bold);
+        padding-bottom: 28px;
+        border-bottom: 1px solid;
+        margin-bottom: 24px;
+        border-image: var(--linear-gradient-line-base) 1;
+    }
+
+    &__subtitle {
+        font-weight: var(--font-weight-light);
+        margin-bottom: 64px;
+    }
+    &__form-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 40px;
+        column-gap: 20px;
+        @media (max-width: mix.em(768)) {
+            row-gap: 24px;
+        }
+    }
+
+    &__form-group {
+        flex: 1 1 calc(50% - 10px); /* Вычитаем половину gap */
+        min-width: 0; /* Фикс для переполнения содержимого */
+    }
+
+    &__input,
+    &__textarea {
+        width: 100%;
+        background-color: inherit;
+        padding: 28px 44px;
+        border: 2px solid var(--color-border);
+        border-radius: var(--border-radius-lg);
+
+        /* Стили для невалидных полей */
+        &:not(:placeholder-shown):invalid {
+            border-color: #ff4d4d;
+            box-shadow: 0 0 0 2px rgba(255, 77, 77, 0.2);
+        }
+
+        &:focus {
+            border: 3px solid var(--color-border);
+            background-color: var(--color-bg-fill);
+            outline: none;
+        }
+
+        &::placeholder {
+            font-family: var(--font-family-base);
+            font-size: var(--font-size-lg);
+        }
+        @media (max-width: mix.em(768)) {
+            padding: 12px 24px;
+        }
+    }
+    &__textarea-wrap {
+        width: 100%;
+        textarea {
+            resize: none;
+            min-height: 210px;
+        }
+    }
+    /* Переработанный чекбокс */
+    &__checkbox-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        margin-top: 20px;
+
+        /* Кастомный чекбокс */
+        .contact-form__checkbox-icon {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--color-icons-base);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+
+            /* Галочка (использует псевдоэлемент) */
+            &::after {
+                content: "";
+                position: absolute;
+                display: none;
+                left: 7px;
+                top: 3px;
+                width: 6px;
+                height: 12px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+            }
+        }
+
+        /* Стили для отмеченного чекбокса */
+        input[type="checkbox"]:checked + .contact-form__checkbox-icon {
+            background-color: #4a90e2;
+            border-color: #4a90e2;
+
+            &::after {
+                display: block;
+            }
+        }
+
+        /* Фокус-стили */
+        input[type="checkbox"]:focus-visible + .contact-form__checkbox-icon {
+            box-shadow: 0 0 0 3px var(--color-border);
+        }
+    }
+
+    &__checkbox-label {
+        font-size: var(--font-size-xs);
+        letter-spacing: var(--letter-spacing-wide);
+    }
+    /* Адаптивность для мобильных */
+    @media (max-width: 768px) {
+        &__form-group {
+            flex: 1 1 100% !important; /* Полная ширина на маленьких экранах */
+        }
+    }
+    &__footer {
+        width: 100%;
+        @media (max-width: mix.em(768)) {
+            text-align: center;
+        }
+    }
+}

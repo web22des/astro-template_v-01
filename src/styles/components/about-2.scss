@@ -1,0 +1,108 @@
+// src/style/components/about.scss
+@use "../base/mixins.scss" as mix;
+@use "../base/mixins/grid.scss" as grid;
+@use "../base/variables.scss" as var;
+
+.about {
+    &__container {
+        padding-top: 0;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: row-reverse;
+
+        //@include grid.grid-2-columns(24px);
+        //grid-auto-flow: column;
+        //direction: rtl;
+        //align-items: center;
+        // display: flex;
+        // flex-direction: row-reverse;
+        // align-items: center;
+        // @media (max-width: mix.em(1000)) {
+        gap: 24px;
+        // }
+
+        @media (max-width: var.$tablet) {
+            //direction: ltr;
+            //@include grid.grid-1-columns(24px);
+            //display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__btn-wrapper {
+    }
+
+    &__images {
+        margin: 0 auto;
+        padding-right: 76px;
+        //flex: 1; /* Равномерное распределение пространства */
+        min-width: 0; /* Фикс переполнения контента (опционально) */
+        //aspect-ratio: 524/557; // Пропорции контейнера
+        // overflow: hidden;
+        @media (max-width: mix.em(1270)) {
+            padding-right: 0;
+            flex: 1;
+        }
+        @media (max-width: mix.em(950)) {
+            // max-width: 600px;
+            // aspect-ratio: 524px/557px;
+        }
+    }
+
+    &__img {
+        border-bottom-left-radius: 100px;
+        border-bottom-right-radius: 240px;
+        border-top-left-radius: 240px;
+        border-top-right-radius: 100px;
+
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        @media (max-width: var.$tablet) {
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 120px;
+            border-top-left-radius: 120px;
+            border-top-right-radius: 50px;
+        }
+    }
+    .section-title-wrap {
+        flex: 1; /* Равномерное распределение пространства */
+        min-width: 0; /* Фикс переполнения контента (опционально) */
+        display: grid;
+        grid-template-columns: (1fr);
+        // align-items: start;
+        // flex: 1;
+        // text-align: end;
+    }
+    .section-title {
+        // min-width: 100%;
+        // width: 100%;
+        margin-bottom: 42px;
+        @media (max-width: var.$tablet) {
+            display: none;
+        }
+    }
+    .section-subtitle {
+        //min-width: 100%;
+        margin-bottom: 28px;
+        @media (max-width: var.$tablet) {
+            text-align: center;
+        }
+        //min-width: 640px;
+    }
+    &__btn-wrapper {
+        @media (max-width: var.$tablet) {
+            text-align: center;
+        }
+    }
+}
+.section-title-wrap {
+}
+
+.button {
+}
+.button--fill {
+}
