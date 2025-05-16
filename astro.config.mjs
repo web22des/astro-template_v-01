@@ -7,4 +7,11 @@ export default defineConfig({
     //base: "/astro-template_v-01/", // Если репозиторий НЕ username.github.io
     base: process.env.NODE_ENV === "production" ? "/astro-template_v-01/" : "/",
     outDir: "dist", // Должно быть именно 'dist'
+
+    // Автоматически обрабатывает SCSS и выносит CSS в отдельный файл
+    vite: {
+        css: {
+            devSourcemap: true, // Карты стилей для разработки
+        },
+    },
 });
