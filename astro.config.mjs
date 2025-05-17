@@ -1,22 +1,19 @@
 import { defineConfig } from "astro/config";
 
-// Умное определение base URL
-const getBase = () => {
-    if (process.env.NODE_ENV === "development") return "/";
-    if (process.argv.includes("preview")) return "/";
-    return "/astro-template_v-01/";
-};
+// Явное определение режимов
+const isDev = process.env.NODE_ENV === "development";
+const isPreview = process.argv.includes("preview");
 
 export default defineConfig({
     site: "https://web22des.github.io",
-    base: getBase(),
+    base: isDev || isPreview ? "/" : "/astro-template_v-01/",
     outDir: "dist",
     vite: {
+        base: isDev || isPreview ? "/" : "/astro-template_v-01/", // Критически важно!
         css: {
             devSourcemap: true,
             postcss: {
                 plugins: [
-                    // Автопрефиксы (встроенная реализация)
                     {
                         postcssPlugin: "autoprefixer",
                         prepare() {
@@ -35,26 +32,15 @@ export default defineConfig({
                             };
                         },
                     },
-                    // Минификация (встроенная)
-                    {
-                        postcssPlugin: "cssnano",
-                        Once(root) {
-                            if (process.env.NODE_ENV === "production") {
-                                root.walkDecls((decl) => {
-                                    decl.value = decl.value.replace(/\s+/g, " ");
-                                });
-                            }
-                        },
-                    },
                 ],
             },
         },
         build: {
-            cssMinify: true, // Дополнительная минификация
-            assetsInlineLimit: 0, // Отключаем встраивание CSS
+            cssMinify: true,
+            assetsInlineLimit: 0,
             rollupOptions: {
                 output: {
-                    assetFileNames: "assets/[name][extname]", // Чистые имена файлов
+                    assetFileNames: "assets/[name][extname]",
                 },
             },
         },
