@@ -1,11 +1,15 @@
 import { defineConfig } from "astro/config";
 
 // Явное определение режимов
+//const isDev = process.env.NODE_ENV === "development";
 const isDev = process.env.NODE_ENV === "development";
+const isPreview = process.argv.includes("preview");
+const isGHPages = process.env.GITHUB_ACTIONS === "true"; // Автоопределение GitHub Actions
 
 export default defineConfig({
     site: "https://web22des.github.io",
     //base: isDev ? "/" : "/astro-template_v-01/", // закоментировать для локальной работы prewiew
+    base: isDev || isPreview || !isGHPages ? "/" : "/astro-template_v-01/",
     outDir: "dist",
     vite: {
         css: {
