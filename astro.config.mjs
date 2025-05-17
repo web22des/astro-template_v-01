@@ -2,14 +2,12 @@ import { defineConfig } from "astro/config";
 
 // Явное определение режимов
 const isDev = process.env.NODE_ENV === "development";
-const isPreview = process.argv.includes("preview");
 
 export default defineConfig({
     site: "https://web22des.github.io",
-    base: isDev || isPreview ? "/" : "/astro-template_v-01/",
+    //base: isDev ? "/" : "/astro-template_v-01/", // закоментировать для локальной работы prewiew
     outDir: "dist",
     vite: {
-        base: isDev || isPreview ? "/" : "/astro-template_v-01/", // Критически важно!
         css: {
             devSourcemap: true,
             postcss: {
