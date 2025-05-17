@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "fontface": "node config/scripts/fontface-generator.js",
     "clean-vars": "node ./config/scripts/clean-unused-vars.js",
     "dev": "astro dev --config config/astro.config.mjs",
     "build": "astro build --config config/astro.config.mjs",

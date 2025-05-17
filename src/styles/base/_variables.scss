@@ -13,97 +13,191 @@ black - 900
 */
 :root {
     // Шрифты
-    --font-family-base: "Montserrat", system-ui, sans-serif; // Основной шрифт
-    // Заголовки
-    // Моноширинный шрифт
-    //// Шрифт с засечками
+    --font-family-base: "Roboto", system-ui, sans-serif; // Основной шрифт
+    --font-family-heading: "Roboto", system-ui, sans-serif; // Заголовки
+    --font-family-mono: "Roboto", system-ui, sans-serif; // Моноширинный шрифт
+    //--font-family-serif: "Georgia", serif; // Шрифт с засечками
 
     // Размеры шрифтов
-    --font-size-base: 16px; // Базовый размер
-    // 12px
-    // 14px
-    // 16px
-    // 18px
+    --font-size-base: mix.rem(16); // Базовый размер
+    --font-size-xs: 12px; // 12px
+    --font-size-sm: 14px; // 14px
+    --font-size-md: 1rem; // 16px
+    --font-size-lg: 1.125rem; // 18px
     --font-size-xl: 24px; // 20px
     --font-size-xxl: 26px; // 24px
-    // 32px
-    // 48px (для крупных заголовков)
+    --font-size-xxxl: 36px; // 32px
+    --font-size-display: 64px; // 48px (для крупных заголовков)
 
     // Начертания
     --font-weight-light: 300;
-    ////--font-weight-bold: 700;
-    //// Межстрочные интервалы
+    --font-weight-regular: 400;
+    //--font-weight-medium: 500;
+    //--font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    //--font-weight-black: 900;
+
+    // Межстрочные интервалы
     --line-height-base: 1.3;
+    --line-height-heading: 1.2;
+    --line-height-tight: 1.1;
+    --line-height-loose: 1.7;
+
     // Межбуквенные интервалы
+    --letter-spacing-tight: -0.02em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.05em;
     // Основные цвета
     --color-primary: #110e71; // Основной цвет (синий)
-    // При наведении
-    // Вторичный цвет (серый)
-    // Успех (зеленый)
-    // Предупреждение (желтый)
-    // Ошибка (красный)
-    // Информация (голубой)
+    --color-primary-hover: #1d4ed8; // При наведении
+    --color-secondary: #6b7280; // Вторичный цвет (серый)
+    --color-success: #10b981; // Успех (зеленый)
+    --color-warning: #f59e0b; // Предупреждение (желтый)
+    --color-danger: #ef4444; // Ошибка (красный)
+    --color-info: #3b82f6; // Информация (голубой)
 
     // Текст
     --color-text: #e2dddd; // Основной текст
-    // Основной текст
-    // Светлый текст
-    // Текст на темном фоне
-    // Заголовки
+    --color-icons-base: #c0b7e8; // Основной текст
+    --color-text-light: #7b7886; // Светлый текст
+    --color-text-inverted: #ffffff; // Текст на темном фоне
+    --color-heading: #111827; // Заголовки
 
     // Фоны
-    // Основной фон
-    // Вторичный фон
+    --color-bg: #ffffff; // Основной фон
+    --color-bg-secondary: radial-gradient(2900.76% 50.13% at 50% 53.89%, rgba(58, 52, 86, 0.95) 0%, #211e2e 100%); // Вторичный фон
     --color-bg-dark: #343045; // Темный фон, например border
-    // Заливка, иконки и прочие мелкие детали
-    // Затемнение
+    --color-bg-fill: #c0b7e8; // Заливка, иконки и прочие мелкие детали
+    --color-bg-overlay: rgba(0, 0, 0, 0.5); // Затемнение
+    --color-bg-accent: #fff;
+
     // Границы
-    //// Базовая граница
-    // Базовая граница
-    // Темная граница
-    // Светлая граница
+    //--color-border: var(--md-sys-color-primary); // Базовая граница
+    --color-border: #fff; // Базовая граница
+    --color-border-dark: #343045; // Темная граница
+    --color-border-light: #f3f4f6; // Светлая граница
 
     // Состояния
-    // Фон при наведении
-    // Фон при нажатии
-    // Обводка при фокусе
+    --color-hover: #f3f4f6; // Фон при наведении
+    --color-active: #e5e7eb; // Фон при нажатии
+    --color-focus: rgba(59, 130, 246, 0.3); // Обводка при фокусе
 
+    --linear-gradient-base: linear-gradient(92deg, #c0b7e8 -1.02%, #8176af 36.25%);
+    --linear-gradient-primary: 92deg, #c0b7e8 -1.02%, #8176af 36.25%;
+    --linear-gradient-accent: linear-gradient(269deg, #c0b7e8 -3.72%, #8176af 82.17%);
     //
+    --linear-gradient-line-base: linear-gradient(to right, #343045 0%, #343045 0%, #c0b7e8 34.9%, #8176af 68.75%, #343045 100%);
     //
+    --radial-gradient-base: radial-gradient(50% 50% at 50% 50%, #403a5f 0%, #211e2e 100%);
+
     // Базовый размер (1rem = 16px)
     --space-unit: 1rem;
 
     // Отступы
-    // 4px
-    // 8px
-    // 12px
+    --space-xxs: 0.25rem; // 4px
+    --space-xs: 0.5rem; // 8px
+    --space-sm: 0.75rem; // 12px
     --space-md: 1rem; // 16px
-    // 24px
-    // 32px
-    // 48px
-    // 64px
+    --space-lg: 1.5rem; // 24px
+    --space-xl: 2rem; // 32px
+    --space-xxl: 3rem; // 48px
+    --space-xxxl: 4rem; // 64px
 
     // Радиусы скругления
+    --border-radius-none: 0;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 40px;
+    --border-radius-xl: 90px;
+    --border-radius-full: 9999px;
+
     // Размеры компонентов
+    --header-height: 60px;
+    --sidebar-width: 240px;
+    --max-content-width: 1200px;
+    --container-padding: var(--space-md);
+
     //===  Карточкм  =====================================================================================================================================================
+
+    --card-size-xs: 100px; /* extra-small → xs */
+    --card-size-sm: 150px; /* small → sm */
+    --card-size-md: mix.rem(310); /* medium → md */
+    --card-size-lg: 500px; /* large → lg */
+    --card-size-xl: 600px; /* extra-large → xl */
 
     //===  Иконки  =====================================================================================================================================================
 
     /* Стандартные размеры */
+    --icon-size-xs: 12px; /* Для мелких элементов (например, иконки в тексте) */
+    --icon-size-sm: 16px; /* Компактные иконки (кнопки, меню) */
+    --icon-size-md: mix.rem(32); /* Стандартный размер (чаще всего используется) */
+    --icon-size-lg: 32px; /* Крупные иконки (заголовки, важные действия) */
+    --icon-size-xl: 100px; /* Очень крупные (например, аватарки) */
+
     /* Дополнительно: */
+    --icon-size-auto: auto; /* Для случаев, когда размер наследуется */
+    --icon-size-full: 100%; /* Для адаптивных иконок внутри контейнера */
     // закругления
+    --icon-radius-sm: 4px;
+    --icon-radius-full: 50%;
+
     //===  Картинки  =====================================================================================================================================================
 
+    --img-ratio-square: 1/1; /* Квадрат */
+    --img-ratio-landscape: 16/9; /* Горизонтальные (видео, баннеры) */
+    --img-ratio-portrait: 9/16; /* Вертикальные (мобильные фото) */
     --img-ratio-custom: 4/3; /* Универсальный (например, товары) */
     /* Ширина */
+    --img-width-auto: auto;
+    --img-width-full: 100%;
+    --img-width-xs: 120px; /* Миниатюры */
+    --img-width-sm: 240px; /* Карточки товаров */
+    --img-width-md: 400px; /* Контентные изображения */
+    --img-width-lg: 600px; /* Большие баннеры */
+    --img-width-xl: 800px; /* Полноразмерные фото */
+
     /* Высота */
+    --img-height-auto: auto;
+    --img-height-full: 100%;
+    --img-height-xs: 80px;
+    --img-height-sm: 160px;
     --img-height-md: 300px;
+    --img-height-lg: 450px;
+    --img-height-xl: 600px;
+
+    /* Минимальные/максимальные размеры */
+    --img-min-width: 100px;
+    --img-max-width: 100%;
+    --img-min-height: 50px;
+    --img-max-height: 100vh;
+
     //===  Тени  =====================================================================================================================================================
 
-    //использую
+    --shadow-none: none;
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    --shadow-md: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); //использую
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
     //===  Анимация  =====================================================================================================================================================
 
+    --transition-duration-fast: 0.15s;
+    --transition-duration-normal: 0.3s;
+    --transition-duration-slow: 0.5s;
+    --transition-timing-default: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-timing-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
     //===  Z-индексы  =====================================================================================================================================================
+
+    --z-index-base: 0;
+    --z-index-dropdown: 100;
+    --z-index-sticky: 200;
+    --z-index-modal: 300;
+    --z-index-overlay: 400;
+    --z-index-tooltip: 500;
+    --z-index-toast: 600;
 
     //===  Брейкпоинты  =====================================================================================================================================================
 
@@ -115,9 +209,17 @@ black - 900
     $breakpoint-xlarge: mix.em(1399.98);
     // Прочие переменные
     // Максимальная и минимальная ширина контента
+    --max-width-container: 1200px;
+    --min-width-container: 320px;
+
     // Минимальная и максимальная высота
+    --min-height-screen: 100vh;
+    --max-height-modal: 90vh;
+
     // Прозрачность
-    }
+    --opacity-disabled: 0.5;
+    --opacity-hover: 0.8;
+}
 // НАСТРОЙКИ ===============================================================================================================================================================================================================================================================================================
 // Минимальная ширина страницы
 $minWidth: 320;
