@@ -19,3 +19,9 @@ _Некорректно работает режим npm run preview_
 #### Подключил и протестировал шрифты. - add auto@FontFace
 
 Также добавил скрипт для автоподключения @fontface config/scripts/fontface-generator запуск по команде `npm run fontface` . Скрипт поддерживает ручной запуск. то есть после добавления нового файла со шрифтами скрипт следует запустить заново, так же работает и с иконочным шрифтом _(icomoon \_icon-)_
+
+---
+
+> Добавление картинок без обработки `<img src="./images/myImage.jpg" alt="foto myImage" width="366" height="146">` Изображения должны лежать в public/images/myImage.jpg
+
+---
