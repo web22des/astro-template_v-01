@@ -16,4 +16,17 @@ export default {
             },
         },
     },
+    plugins: [
+        {
+            name: "cache-headers",
+            configureServer(server) {
+                server.middlewares.use((req, res, next) => {
+                    if (/\.(js|css|png|jpg|jpeg|gif|webp|svg|woff2?)$/.test(req.url)) {
+                        res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+                    }
+                    next();
+                });
+            },
+        },
+    ],
 };
