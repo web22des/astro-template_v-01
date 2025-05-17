@@ -1,6 +1,5 @@
 // config/astro/astro.config.mjs
 import { defineConfig } from "astro/config";
-//import { Image } from "astro:assets";
 import viteConfig from "./vite.config.js";
 
 const isDev = process.env.NODE_ENV === "development";
@@ -11,5 +10,4 @@ export default defineConfig({
     site: "https://web22des.github.io",
     base: isDev || isPreview || !isGHPages ? "/" : "/astro-template_v-01/",
     vite: viteConfig,
-    //integrations: [Image()],
 });

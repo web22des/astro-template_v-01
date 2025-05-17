@@ -1,0 +1,15 @@
+---
+import "../styles/markdown-base.scss";
+const {frontmatter} = Astro.props;
+---
+<html lang="ru" class="dark">
+	<head>
+		<meta charset="utf-8" />
+		<title>{frontmatter.title}</title>
+	</head>
+<body class="wrapper">
+  <article class="markdown__container page">
+    <slot /> <!-- Сюда вставится содержимое .md -->
+  </article>
+</body>
+</html>

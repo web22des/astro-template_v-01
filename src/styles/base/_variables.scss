@@ -23,7 +23,7 @@ black - 900
     --font-size-xs: 12px; // 12px
     --font-size-sm: 14px; // 14px
     --font-size-md: 1rem; // 16px
-    --font-size-lg: 1.125rem; // 18px
+    --font-size-lg: mix.rem(1.125); // 18px
     --font-size-xl: 24px; // 20px
     --font-size-xxl: 26px; // 24px
     --font-size-xxxl: 36px; // 32px
