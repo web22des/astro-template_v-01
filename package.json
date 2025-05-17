@@ -3,12 +3,16 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "clean-vars": "node ./config/scripts/clean-unused-vars.js",
+    "dev": "astro dev --config config/astro.config.mjs",
+    "build": "astro build --config config/astro.config.mjs",
+    "preview": "astro preview --config config/astro.config.mjs"
   },
   "dependencies": {
     "astro": "^5.7.13"
+  },
+  "devDependencies": {
+    "glob": "^11.0.2",
+    "postcss": "^8.5.3"
   }
 }

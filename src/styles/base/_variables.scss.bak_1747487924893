@@ -48,7 +48,7 @@ black - 900
     --letter-spacing-normal: 0;
     --letter-spacing-wide: 0.05em;
     // Основные цвета
-    --color-primary: #2d7292; // Основной цвет (синий)
+    --color-primary: #110e71; // Основной цвет (синий)
     --color-primary-hover: #1d4ed8; // При наведении
     --color-secondary: #6b7280; // Вторичный цвет (серый)
     --color-success: #10b981; // Успех (зеленый)
