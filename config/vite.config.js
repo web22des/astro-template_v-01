@@ -12,7 +12,10 @@ export default {
         assetsInlineLimit: 0,
         rollupOptions: {
             output: {
-                assetFileNames: "assets/[name][extname]",
+                // Добавляем хеш для cache busting
+                assetFileNames: "assets/[name]-[hash][extname]",
+                chunkFileNames: "js/[name]-[hash].js",
+                entryFileNames: "js/[name]-[hash].js",
             },
         },
     },
@@ -26,6 +29,10 @@ export default {
                     }
                     next();
                 });
+            },
+            // Добавляем обработку для production
+            transformIndexHtml(html) {
+                return html.replace(/(<link[^>]+\.css"|<script[^>]+\.js"|<img[^>]+\.(png|jpg|jpeg|gif|webp|svg)")/g, '$& crossorigin="anonymous"');
             },
         },
     ],
