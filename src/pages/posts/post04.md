@@ -1,5 +1,5 @@
 ---
-layout: ../../Layouts/MarkdownLayout.astro
+layout: "@Layouts/MarkdownLayout.astro"
 title: "Куда попадают стили и скрипты из Astro-компонентов при сборке"
 
 date: 2023-11-18
