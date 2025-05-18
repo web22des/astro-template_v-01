@@ -1,27 +1,11 @@
-import { c as createComponent, m as maybeRenderHead, r as renderTemplate, a as createAstro, b as addAttribute, d as renderHead, e as renderComponent, f as renderSlot, A as AstroError, E as ExpectedImage, L as LocalImageUsedWrongly, M as MissingImageDimension, U as UnsupportedImageFormat, I as IncompatibleDescriptorOptions, g as UnsupportedImageConversion, t as toStyleString, N as NoImageMetadata, F as FailedToFetchRemoteImageDimensions, h as ExpectedImageOptions, i as ExpectedNotESMImage, j as InvalidImageService, k as ImageMissingAlt, s as spreadAttributes, l as ExperimentalFontsNotEnabled, n as FontFamilyNotFound, u as unescapeHTML } from './astro/server-CqVo7V9l.js';
+import { A as AstroError, E as ExpectedImage, L as LocalImageUsedWrongly, M as MissingImageDimension, U as UnsupportedImageFormat, I as IncompatibleDescriptorOptions, e as UnsupportedImageConversion, t as toStyleString, N as NoImageMetadata, F as FailedToFetchRemoteImageDimensions, f as ExpectedImageOptions, g as ExpectedNotESMImage, h as InvalidImageService, b as createAstro, c as createComponent, i as ImageMissingAlt, m as maybeRenderHead, d as addAttribute, s as spreadAttributes, a as renderTemplate, j as ExperimentalFontsNotEnabled, k as FontFamilyNotFound, u as unescapeHTML, r as renderComponent } from './astro/server-BJsnRDlE.js';
 import 'kleur/colors';
-/* empty css                        */
-import 'clsx';
+import { $ as $$PageLayout } from './PageLayout-EifdERYQ.js';
 import { joinPaths, isRemotePath } from '@astrojs/internal-helpers/path';
 import { isRemoteAllowed } from '@astrojs/internal-helpers/remote';
 import * as mime from 'mrmime';
+import 'clsx';
 import '../renderers.mjs';
-
-const $$Header = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<footer class="header"> <div class="header__container"> <p>header</p> </div> </footer>`;
-}, "/home/runner/work/astro-template_v-01/astro-template_v-01/src/components/Header.astro", void 0);
-
-const $$Footer = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<footer class="footer"> <div class="footer__container"> <p>Footer</p> </div> </footer>`;
-}, "/home/runner/work/astro-template_v-01/astro-template_v-01/src/components/Footer.astro", void 0);
-
-const $$Astro$3 = createAstro("https://web22des.github.io");
-const $$PageLayout = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$3, $$props, $$slots);
-  Astro2.self = $$PageLayout;
-  const { title = "\u0413\u043B\u0430\u0432\u043D\u0430\u044F" } = Astro2.props;
-  return renderTemplate`<html lang="ru"> <head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator"${addAttribute(Astro2.generator, "content")}><!-- Базовые иконки --><link rel="icon" href="./favicon/favicon.ico" sizes="any"><link rel="icon" href="./favicon/favicon.svg" type="image/svg+xml"><!-- Адаптивные иконки --><link rel="apple-touch-icon" href="./favicon/apple-touch-icon.png"><link rel="manifest" href="./favicon/site.webmanifest"><title>${title}</title>${renderHead()}</head> <body class="wrapper light"> ${renderComponent($$result, "Header", $$Header, {})} <main class="page"> ${renderSlot($$result, $$slots["default"])} </main> ${renderComponent($$result, "Footer", $$Footer, {})} </body></html>`;
-}, "/home/runner/work/astro-template_v-01/astro-template_v-01/src/layouts/PageLayout.astro", void 0);
 
 const VALID_SUPPORTED_FORMATS = [
   "jpeg",
@@ -1224,7 +1208,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './sharp-C-x3-OZz.js'
+      './sharp-DhPYzVSh.js'
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
@@ -1470,7 +1454,7 @@ const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
 }, "/home/runner/work/astro-template_v-01/astro-template_v-01/node_modules/astro/components/Picture.astro", void 0);
 
 const mod = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-    __proto__: null
+  __proto__: null
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const $$Astro = createAstro("https://web22des.github.io");
@@ -1492,7 +1476,7 @@ const $$Font = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${preload && data.preloadData.map(({ url, type }) => renderTemplate`<link rel="preload"${addAttribute(url, "href")} as="font"${addAttribute(`font/${type}`, "type")} crossorigin>`)}<style>${unescapeHTML(data.css)}</style>`;
 }, "/home/runner/work/astro-template_v-01/astro-template_v-01/node_modules/astro/components/Font.astro", void 0);
 
-const imageConfig = {"endpoint":{"route":"/_image"},"service":{"entrypoint":"astro/assets/services/sharp","config":{}},"domains":[],"remotePatterns":[],"experimentalResponsiveImages":false};
+const imageConfig = {"endpoint":{"route":"/_image/"},"service":{"entrypoint":"astro/assets/services/sharp","config":{}},"domains":[],"remotePatterns":[],"experimentalResponsiveImages":false};
 							const getImage = async (options) => await getImage$1(options, imageConfig);
 
 const bg01 = new Proxy({"src":"/astro-template_v-01/assets/bg-01-C9E5LUaV.jpg","width":2560,"height":1080,"format":"jpg"}, {
@@ -1536,7 +1520,7 @@ const bg03 = new Proxy({"src":"/astro-template_v-01/assets/bg-03-UOU7RUNW.jpg","
 
 const $$TestComponent = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<div class="test-components"> <div class="test-components__container"> <div class="test-components__card"> <h3 class="test-components__title">Card Title</h3> <h4 class="test-components__subtitle">Card Subtitle</h4> ${renderComponent($$result, "Image", $$Image, { "class": "test-components__card-img", "src": bg01, "alt": "foto test-components", "width": 366, "height": 146 })} <p class="test-components__card-text">Это изображение добавлено через встроенный Image </p> </div> <div class="test-components__card"> <h3 class="test-components__title">Card Title</h3> <h4 class="test-components__subtitle">Card Subtitle</h4> ${renderComponent($$result, "Image", $$Image, { "class": "test-components__card-img", "src": bg02, "alt": "foto test-components", "width": 366, "height": 146 })} <p class="test-components__card-text">Это изображение добавлено через встроенный Image </p> </div> <div class="test-components__card"> <h3 class="test-components__title">Card Title</h3> <h4 class="test-components__subtitle">Card Subtitle</h4> ${renderComponent($$result, "Image", $$Image, { "class": "test-components__card-img", "src": bg03, "alt": "foto test-components", "width": 366, "height": 146 })} <p class="test-components__card-text">Это изображение добавлено через встроенный Image </p> </div> </div> </div>`;
-}, "/home/runner/work/astro-template_v-01/astro-template_v-01/src/components/Test-component.astro", void 0);
+}, "/home/runner/work/astro-template_v-01/astro-template_v-01/src/components/sections/Test-component.astro", void 0);
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
   const title = "\u0413\u043B\u0430\u0432\u043D\u0430\u044F";
@@ -1544,13 +1528,13 @@ const $$Index = createComponent(($$result, $$props, $$slots) => {
 }, "/home/runner/work/astro-template_v-01/astro-template_v-01/src/pages/index.astro", void 0);
 
 const $$file = "/home/runner/work/astro-template_v-01/astro-template_v-01/src/pages/index.astro";
-const $$url = "/astro-template_v-01";
+const $$url = "/astro-template_v-01/";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-    __proto__: null,
-    default: $$Index,
-    file: $$file,
-    url: $$url
+  __proto__: null,
+  default: $$Index,
+  file: $$file,
+  url: $$url
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const page = () => _page;
