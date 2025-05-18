@@ -13,7 +13,8 @@ const sortedPosts = allPosts.sort((a, b) =>
             <h1>{title}</h1>	
             <ul>
             {sortedPosts.map(post => {
-                const slug = post.file?.split('/')?.pop()?.replace('.md', '') ?? '';
+                const slug = post.file.split('/').pop()?.replace(/\.md$/, '') ?? '';
+                //const slug = post.file?.split('/')?.pop()?.replace('.md', '') ?? '';
                 return (
                 <li>
                     <a href={`/posts/${slug}/`}>
