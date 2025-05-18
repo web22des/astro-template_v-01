@@ -5,8 +5,29 @@ import path from "path";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default {
+    resolve: {
+        alias: {
+            "@": path.resolve("./src"),
+            "@components": path.resolve("./src/components"),
+            "@styles": path.resolve("./src/styles"),
+            "@assets": path.resolve("./src/assets"),
+            "@layouts": path.resolve("./src/layouts"),
+            "@fonts": path.resolve("./public/fonts"),
+            "@images": path.resolve("./public/images"),
+            "@icons": path.resolve("./public/icons"),
+        },
+    },
     css: {
-        postcss: path.resolve(__dirname, "../../config/postcss.config.js"),
+        //postcss: path.resolve(__dirname, "../../config/postcss.config.js"),
+        postcss: path.resolve(__dirname, path.join(process.cwd(), "config", "postcss.config.js")),
+        preprocessorOptions: {
+            scss: {
+                additionalData: `
+                @import "@styles/base/_variables.scss";
+                @import "@styles/base/mixins.scss";
+                `,
+            },
+        },
     },
     build: {
         assetsInlineLimit: 0,

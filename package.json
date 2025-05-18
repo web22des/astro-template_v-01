@@ -10,10 +10,12 @@
     "preview": "astro preview --config config/astro.config.mjs"
   },
   "dependencies": {
-    "astro": "^5.7.13"
+    "astro": "^5.7.13",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "glob": "^11.0.2",
-    "postcss": "^8.5.3"
+    "postcss": "^8.5.3",
+    "sass-embedded": "^1.89.0"
   }
 }
