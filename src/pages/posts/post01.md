@@ -1,5 +1,5 @@
 ---
-layout: "@Layouts/MarkdownLayout.astro"
+layout: ../../Layouts/MarkdownLayout.astro
 title: "Полное руководство по оптимизации изображений в Astro"
 
 date: 2023-11-15

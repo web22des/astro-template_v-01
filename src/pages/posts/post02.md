@@ -1,5 +1,5 @@
 ---
-layout: "@Layouts/MarkdownLayout.astro"
+layout: ../../Layouts/MarkdownLayout.astro
 title: "Лучшая практика работы с Markdown/MDX и классами в Astro (официальный подход + рекомендации)"
 
 date: 2023-11-16
