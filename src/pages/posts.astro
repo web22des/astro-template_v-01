@@ -3,35 +3,44 @@ import PageLayout from "../layouts/PageLayout.astro";
 import path from 'path';
 
 const title = "Мои посты";
-const allPosts = await Astro.glob('./posts/*.md');
+interface Post {
+    file: string;
+    frontmatter: {
+    title: string;
+    description: string;
+    date: string;
+    };
+}
+
+const allPosts = (await Astro.glob('./posts/*.md')) as Post[];
 const sortedPosts = allPosts.sort((a, b) => 
     new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
 
 // Фиксим ссылки с учетом base URL
 const baseUrl = import.meta.env.BASE_URL; // "/astro-template_v-01/"
-const getPostUrl = (slug) => `${baseUrl}posts/${slug}/`;
+const getPostUrl = (slug: string) => `${baseUrl}posts/${slug}/`;
 ---
 
 <PageLayout title={title}>
-<div class="hero">
-    <div class="hero__container">
-        <h1>{title}</h1>	
-            <ul>
-                {sortedPosts.map(post => {
-                    const slug = path.basename(post.file, '.md');
-                    return (
-                    <li key={slug}>
-                        <a href={getPostUrl(slug)}>  <!-- Исправленная ссылка -->
-                        <h2>{post.frontmatter.title}</h2>
-                        </a>
-                        <p>{post.frontmatter.description}</p>
-                        <small>
-                        {new Date(post.frontmatter.date).toLocaleDateString('ru-RU')}
-                        </small>
-                    </li>
-                    );
-                })}
-            </ul>
+    <div class="hero">
+        <div class="hero__container">
+            <h1>{title}</h1>	
+                <ul>
+                    {sortedPosts.map(post => {
+                        const slug = path.basename(post.file, '.md');
+                        return (
+                        <li key={slug}>
+                            <a href={getPostUrl(slug)}>  
+                            <h2>{post.frontmatter.title}</h2>
+                            </a>
+                            <p>{post.frontmatter.description}</p>
+                            <small>
+                            {new Date(post.frontmatter.date).toLocaleDateString('ru-RU')}
+                            </small>
+                        </li>
+                        );
+                    })}
+                </ul>
+        </div>
     </div>
-</div>
 </PageLayout>

@@ -15,6 +15,7 @@ export default {
             "@fonts": path.resolve("./public/fonts"),
             "@images": path.resolve("./public/images"),
             "@icons": path.resolve("./public/icons"),
+            "@favicon": path.resolve("./public/favicon"),
         },
     },
     css: {
