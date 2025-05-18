@@ -9,6 +9,6 @@ const isGHPages = process.env.GITHUB_ACTIONS === "true"; // Автоопреде
 export default defineConfig({
     site: "https://web22des.github.io",
     base: isDev || isPreview || !isGHPages ? "/" : "/astro-template_v-01/",
-    trailingSlash: "ignore",
+    trailingSlash: "always",
     vite: viteConfig,
 });
