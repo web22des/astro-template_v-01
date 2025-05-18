@@ -1,4 +1,6 @@
 ---
+import Link from "../ui/Link.astro";
+
 import "@styles/themes/v_01/_light.scss";
 import "@styles/themes/v_01/_dark.scss";
 import "@styles/base/_variables.scss";
@@ -8,9 +10,9 @@ import "@styles/base/_variables.scss";
     <div class="header__container">
         <nav class="header__nav">
             <ul class="header__menu">
-                <li class="header__menu-item"><a href="/" class="header__menu-link">Главная</a></li>
-                <li class="header__menu-item"><a href="/posts" class="header__menu-link">Мои посты</a></li>
-                <li class="header__menu-item"><a href="/contacts" class="header__menu-link">Контакты</a></li>
+                <li class="header__menu-item"><Link href="/">Главная</Link></li>
+                <li class="header__menu-item"><Link href="/posts">Посты</Link></li>
+                <li class="header__menu-item"><Link href="/contacts">Мои контакты</Link></li>
             </ul>
         </nav>
     </div>
@@ -38,3 +40,5 @@ import "@styles/base/_variables.scss";
 .header__menu-link {
 }
 </style>
+
+
