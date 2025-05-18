@@ -1,5 +1,5 @@
 ---
-layout: ../../Layouts/MarkdownLayout.astro
+layout: ../../layouts/MarkdownLayout.astro
 title: "Клиентский JS внутри компонента (для интерактивности)"
 
 date: 2023-11-17
