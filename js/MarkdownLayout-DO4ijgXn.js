@@ -1,6 +1,6 @@
 import { b as createAstro, c as createComponent, l as renderHead, r as renderComponent, n as renderSlot, a as renderTemplate } from './astro/server-BJsnRDlE.js';
 import 'kleur/colors';
-import { $ as $$Header, a as $$Footer } from './Footer-Cq5qSOQl.js';
+import { $ as $$Header, a as $$Footer } from './Footer--__mJOUu.js';
 
 const $$Astro = createAstro("https://web22des.github.io");
 const $$MarkdownLayout = createComponent(($$result, $$props, $$slots) => {

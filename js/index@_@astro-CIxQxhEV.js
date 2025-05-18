@@ -1,6 +1,6 @@
 import { A as AstroError, E as ExpectedImage, L as LocalImageUsedWrongly, M as MissingImageDimension, U as UnsupportedImageFormat, I as IncompatibleDescriptorOptions, e as UnsupportedImageConversion, t as toStyleString, N as NoImageMetadata, F as FailedToFetchRemoteImageDimensions, f as ExpectedImageOptions, g as ExpectedNotESMImage, h as InvalidImageService, b as createAstro, c as createComponent, i as ImageMissingAlt, m as maybeRenderHead, d as addAttribute, s as spreadAttributes, a as renderTemplate, j as ExperimentalFontsNotEnabled, k as FontFamilyNotFound, u as unescapeHTML, r as renderComponent } from './astro/server-BJsnRDlE.js';
 import 'kleur/colors';
-import { $ as $$PageLayout } from './PageLayout-C_5Ox_aY.js';
+import { $ as $$PageLayout } from './PageLayout-BQ7JzW2h.js';
 import { joinPaths, isRemotePath } from '@astrojs/internal-helpers/path';
 import { isRemoteAllowed } from '@astrojs/internal-helpers/remote';
 import * as mime from 'mrmime';
@@ -1208,7 +1208,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './sharp-B5wEAgoy.js'
+      './sharp-LYNkH-Qn.js'
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
