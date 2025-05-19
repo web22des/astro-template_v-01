@@ -15,6 +15,9 @@ const { title = 'Главная' } = Astro.props;
 <html lang="ru">
 	<head>
 		<meta charset="utf-8" />
+		<!-- Добавляем meta-тег для системной темы -->
+		<meta name="color-scheme" content="light dark">
+		<meta name="theme-color" content="var(--md-sys-color-background)">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
@@ -29,7 +32,7 @@ const { title = 'Главная' } = Astro.props;
 		
 		<title>{title}</title>
 	</head>
-	<body class="wrapper light">
+	<body class="wrapper">
 		<Header />
 		<main class="page">
 			<slot/>

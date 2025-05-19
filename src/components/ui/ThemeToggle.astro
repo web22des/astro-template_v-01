@@ -1,6 +1,16 @@
 ---
 // src/components/ThemeToggle.astro
 
+import type { APIContext } from 'astro';
+
+// Получаем контекст для TypeScript
+const { cookies } = Astro as APIContext;
+let initialTheme = 'light'; // значение по умолчанию
+
+// Безопасное получение темы из cookie
+const cookieTheme = cookies.get('theme')?.value;
+initialTheme = cookieTheme || 
+                    (Astro.request.headers.get('sec-ch-prefers-color-scheme') === 'dark' ? 'dark' : 'light');
 // Подключаем стили прямо в компоненте
 
 ---
