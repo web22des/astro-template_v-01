@@ -19,14 +19,10 @@ export default {
         },
     },
     css: {
-        postcss: path.resolve(__dirname, "../../config/postcss.config.js"),
-        //postcss: path.resolve(__dirname, path.join(process.cwd(), "config", "postcss.config.js")),
+        //postcss: path.resolve(__dirname, "../../config/postcss.config.js"),
         // preprocessorOptions: {
         //     scss: {
-        //         additionalData: `
-        //         @import "@styles/base/_variables.scss";
-        //         @import "@styles/base/mixins.scss";
-        //         `,
+        //         additionalData: `@use "@styles/base/null.scss";`, // ✅
         //     },
         // },
     },

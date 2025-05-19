@@ -1,9 +1,7 @@
 ---
 import Link from "../ui/Link.astro";
 
-import "@styles/themes/v_01/_light.scss";
-import "@styles/themes/v_01/_dark.scss";
-import "@styles/base/_variables.scss";
+import ThemeToggle from "../ui/ThemeToggle.astro";
 
 ---
 <header class="header">
@@ -15,7 +13,11 @@ import "@styles/base/_variables.scss";
                 <li class="header__menu-item"><Link href="/contacts/">Мои контакты</Link></li>
             </ul>
         </nav>
+        <div class="header__theme-togle">
+            <ThemeToggle />
+        </div>
     </div>
+
 </header>
 
 <!--  -->

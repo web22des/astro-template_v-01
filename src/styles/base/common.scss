@@ -9,6 +9,7 @@ body {
     background-color: var(--md-sys-color-on-primary);
     color: var(--md-sys-color-primary);
     line-height: var(--line-height-base);
+    transition: background-color 0.3s ease, color 0.3s ease; // Плавное переключение темы
 }
 // Обертка для прижания подвала книзу
 .wrapper {
