@@ -93,23 +93,25 @@ black - 900
     // Базовый размер (1rem = 16px)
     --space-unit: 1rem;
 
-    // Отступы
-    --space-xxs: 0.25rem; // 4px
-    --space-xs: 0.5rem; // 8px
-    --space-sm: 0.75rem; // 12px
-    --space-md: 1rem; // 16px
-    --space-lg: 1.5rem; // 24px
-    --space-xl: 2rem; // 32px
-    --space-xxl: 3rem; // 48px
-    --space-xxxl: 4rem; // 64px
+    // Отступы  полностью соответствуют Matherial Theme 3
+    --space-xxs: mix, rem(4); // 4px
+    --space-xs: mix.rem(8); // 8px
+    --space-sm: mix.rem(12); // 12px
+    --space-md: mix.rem(16); // 16px
+    --space-lg: mix.rem(24); // 24px
+    --space-xl: mix.rem(32); // 32px
+    --space-xxl: mix.rem(48); // 48px
+    --space-xxxl: mix.rem(64); // 64px
 
-    // Радиусы скругления
+    // Радиусы скругления полностью соответствуют Matherial Theme 3
     --border-radius-none: 0;
-    --border-radius-sm: 4px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 40px;
-    --border-radius-xl: 90px;
-    --border-radius-full: 9999px;
+    --border-radius-extra-small: mix.rem(4);
+    --border-radius-small: mix.rem(8);
+    --border-radius-medium: mix.rem(12);
+    --border-radius-large: mix.rem(16);
+    --border-radius-large-increased: mix.rem(20);
+    --border-radius-extra-large: mix.rem(28);
+    --border-radius-full: mix.rem(1000);
 
     // Размеры компонентов
     --header-height: 60px;
@@ -128,11 +130,11 @@ black - 900
     //===  Иконки  =====================================================================================================================================================
 
     /* Стандартные размеры */
-    --icon-size-xs: 12px; /* Для мелких элементов (например, иконки в тексте) */
-    --icon-size-sm: 16px; /* Компактные иконки (кнопки, меню) */
-    --icon-size-md: mix.rem(32); /* Стандартный размер (чаще всего используется) */
-    --icon-size-lg: 32px; /* Крупные иконки (заголовки, важные действия) */
-    --icon-size-xl: 100px; /* Очень крупные (например, аватарки) */
+    --icon-size-extra-small: mix.rem(12); /* Для мелких элементов (например, иконки в тексте) */
+    --icon-size-small: mix.rem(24); /* Компактные иконки (кнопки, меню) */
+    --icon-size-medium: mix.rem(32); /* Стандартный размер (чаще всего используется) */
+    --icon-size-large: mix.rem(40); /* Крупные иконки (заголовки, важные действия) */
+    --icon-size-extra-large: mix.rem(96); /* Очень крупные (например, аватарки) */
 
     /* Дополнительно: */
     --icon-size-auto: auto; /* Для случаев, когда размер наследуется */
