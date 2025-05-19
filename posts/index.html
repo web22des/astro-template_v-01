@@ -1,2 +1,62 @@
-<!DOCTYPE html><html lang="ru"> <head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.7.13"><!-- Базовые иконки --><link rel="icon" href="/favicon/favicon.ico" sizes="any"><link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml"><!-- Адаптивные иконки --><link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png"><link rel="manifest" href="/favicon/site.webmanifest"><title>Мои посты</title><link rel="stylesheet" href="/astro-template_v-01/assets/contacts-DRjbHvch.css">
-<link rel="stylesheet" href="/astro-template_v-01/assets/post01-qN9Ym0pc.css"></head> <body class="wrapper light"> <header class="header" data-astro-cid-x3onawaz> <div class="header__container" data-astro-cid-x3onawaz> <nav class="header__nav" data-astro-cid-x3onawaz> <ul class="header__menu" data-astro-cid-x3onawaz> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/" data-astro-cid-x3onawaz="true"> Главная </a></li> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/posts/" data-astro-cid-x3onawaz="true"> Посты </a></li> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/contacts/" data-astro-cid-x3onawaz="true"> Мои контакты </a></li> </ul> </nav> </div> </header> <!--  -->  <main class="page">  <div class="hero"> <div class="hero__container"> <h1>Мои посты</h1> <ul> <li key="post04"> <a href="/astro-template_v-01/posts/post04/"> <h2>Куда попадают стили и скрипты из Astro-компонентов при сборке</h2> </a> <p>Это пример описания поста</p> <small> 18.11.2023 </small> </li><li key="post03"> <a href="/astro-template_v-01/posts/post03/"> <h2>Клиентский JS внутри компонента (для интерактивности)</h2> </a> <p>Это пример описания поста</p> <small> 17.11.2023 </small> </li><li key="post02"> <a href="/astro-template_v-01/posts/post02/"> <h2>Лучшая практика работы с Markdown/MDX и классами в Astro (официальный подход + рекомендации)</h2> </a> <p>Это пример описания поста</p> <small> 16.11.2023 </small> </li><li key="post01"> <a href="/astro-template_v-01/posts/post01/"> <h2>Полное руководство по оптимизации изображений в Astro</h2> </a> <p>Это пример описания поста</p> <small> 15.11.2023 </small> </li> </ul> </div> </div>  </main> <footer class="footer"> <div class="footer__container"> <p>Footer</p> </div> </footer> </body></html>
+<!DOCTYPE html><html lang="ru"> <head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.7.13"><!-- Базовые иконки --><link rel="icon" href="/favicon/favicon.ico" sizes="any"><link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml"><!-- Адаптивные иконки --><link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png"><link rel="manifest" href="/favicon/site.webmanifest"><title>Мои посты</title><link rel="stylesheet" href="/astro-template_v-01/assets/contacts-YQypp6-T.css">
+<link rel="stylesheet" href="/astro-template_v-01/assets/post01-BZccmOHT.css"></head> <body class="wrapper light"> <header class="header" data-astro-cid-x3onawaz> <div class="header__container" data-astro-cid-x3onawaz> <nav class="header__nav" data-astro-cid-x3onawaz> <ul class="header__menu" data-astro-cid-x3onawaz> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/" data-astro-cid-x3onawaz="true"> Главная </a></li> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/posts/" data-astro-cid-x3onawaz="true"> Посты </a></li> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/contacts/" data-astro-cid-x3onawaz="true"> Мои контакты </a></li> </ul> </nav> <div class="header__theme-togle" data-astro-cid-x3onawaz> <script>
+  (function() {
+    // Функция для установки темы
+    function setTheme(theme) {
+      document.body.classList.remove('light', 'dark');
+      document.body.classList.add(theme);
+      localStorage.setItem('theme', theme);
+      
+      // Обновляем чекбокс
+      const toggle = document.getElementById('theme-toggle');
+      if (toggle) {
+        toggle.checked = theme === 'dark';
+      }
+    }
+
+    // Функция для определения начальной темы
+    function initTheme() {
+      // Проверяем классы на body
+      if (document.body.classList.contains('light')) {
+        return 'light';
+      }
+      if (document.body.classList.contains('dark')) {
+        return 'dark';
+      }
+      
+      // Проверяем localStorage
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        return savedTheme;
+      }
+      
+      // Проверяем системные настройки
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches 
+        ? 'dark' 
+        : 'light';
+    }
+
+    // Инициализация темы
+    const currentTheme = initTheme();
+    setTheme(currentTheme);
+
+    // Обработчик переключения темы
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      if (toggle) {
+        toggle.checked = currentTheme === 'dark';
+        
+        toggle.addEventListener('change', (e) => {
+          setTheme(e.target.checked ? 'dark' : 'light');
+        });
+      }
+    });
+
+    // Следим за изменениями системных настроек (если тема не выбрана явно)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  })();
+</script><div class="theme-toggle" data-astro-cid-lfoluaxz> <input type="checkbox" id="theme-toggle" class="theme-toggle__input" data-astro-cid-lfoluaxz> <label for="theme-toggle" class="theme-toggle__slider" data-astro-cid-lfoluaxz></label> </div> </div> </div> </header> <!--  -->  <main class="page">  <div class="hero"> <div class="hero__container"> <h1>Мои посты</h1> <ul> <li key="post04"> <a href="/astro-template_v-01/posts/post04/"> <h2>Куда попадают стили и скрипты из Astro-компонентов при сборке</h2> </a> <p>Это пример описания поста</p> <small> 18.11.2023 </small> </li><li key="post03"> <a href="/astro-template_v-01/posts/post03/"> <h2>Клиентский JS внутри компонента (для интерактивности)</h2> </a> <p>Это пример описания поста</p> <small> 17.11.2023 </small> </li><li key="post02"> <a href="/astro-template_v-01/posts/post02/"> <h2>Лучшая практика работы с Markdown/MDX и классами в Astro (официальный подход + рекомендации)</h2> </a> <p>Это пример описания поста</p> <small> 16.11.2023 </small> </li><li key="post01"> <a href="/astro-template_v-01/posts/post01/"> <h2>Полное руководство по оптимизации изображений в Astro</h2> </a> <p>Это пример описания поста</p> <small> 15.11.2023 </small> </li> </ul> </div> </div>  </main> <footer class="footer"> <div class="footer__container"> <p>Footer</p> </div> </footer> </body></html>

@@ -1,4 +1,64 @@
-<!DOCTYPE html><html lang="ru" class="light"> <head><meta charset="utf-8"><!-- Базовые иконки --><link rel="icon" href="/favicon/favicon.ico" sizes="any"><link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml"><!-- Адаптивные иконки --><link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png"><link rel="manifest" href="/favicon/site.webmanifest"><title>Клиентский JS внутри компонента (для интерактивности)</title><link rel="stylesheet" href="/astro-template_v-01/assets/post01-qN9Ym0pc.css"></head> <body class="wrapper"> <header class="header" data-astro-cid-x3onawaz> <div class="header__container" data-astro-cid-x3onawaz> <nav class="header__nav" data-astro-cid-x3onawaz> <ul class="header__menu" data-astro-cid-x3onawaz> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/" data-astro-cid-x3onawaz="true"> Главная </a></li> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/posts/" data-astro-cid-x3onawaz="true"> Посты </a></li> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/contacts/" data-astro-cid-x3onawaz="true"> Мои контакты </a></li> </ul> </nav> </div> </header> <!--  -->  <article class="markdown__container page"> <h2 id="1-клиентский-js-внутри-компонента-для-интерактивности">1. Клиентский JS внутри компонента (для интерактивности)</h2>
+<!DOCTYPE html><html lang="ru" class="light"> <head><meta charset="utf-8"><!-- Базовые иконки --><link rel="icon" href="/favicon/favicon.ico" sizes="any"><link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml"><!-- Адаптивные иконки --><link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png"><link rel="manifest" href="/favicon/site.webmanifest"><title>Клиентский JS внутри компонента (для интерактивности)</title><link rel="stylesheet" href="/astro-template_v-01/assets/post01-BZccmOHT.css"></head> <body class="wrapper"> <header class="header" data-astro-cid-x3onawaz> <div class="header__container" data-astro-cid-x3onawaz> <nav class="header__nav" data-astro-cid-x3onawaz> <ul class="header__menu" data-astro-cid-x3onawaz> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/" data-astro-cid-x3onawaz="true"> Главная </a></li> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/posts/" data-astro-cid-x3onawaz="true"> Посты </a></li> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/contacts/" data-astro-cid-x3onawaz="true"> Мои контакты </a></li> </ul> </nav> <div class="header__theme-togle" data-astro-cid-x3onawaz> <script>
+  (function() {
+    // Функция для установки темы
+    function setTheme(theme) {
+      document.body.classList.remove('light', 'dark');
+      document.body.classList.add(theme);
+      localStorage.setItem('theme', theme);
+      
+      // Обновляем чекбокс
+      const toggle = document.getElementById('theme-toggle');
+      if (toggle) {
+        toggle.checked = theme === 'dark';
+      }
+    }
+
+    // Функция для определения начальной темы
+    function initTheme() {
+      // Проверяем классы на body
+      if (document.body.classList.contains('light')) {
+        return 'light';
+      }
+      if (document.body.classList.contains('dark')) {
+        return 'dark';
+      }
+      
+      // Проверяем localStorage
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        return savedTheme;
+      }
+      
+      // Проверяем системные настройки
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches 
+        ? 'dark' 
+        : 'light';
+    }
+
+    // Инициализация темы
+    const currentTheme = initTheme();
+    setTheme(currentTheme);
+
+    // Обработчик переключения темы
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      if (toggle) {
+        toggle.checked = currentTheme === 'dark';
+        
+        toggle.addEventListener('change', (e) => {
+          setTheme(e.target.checked ? 'dark' : 'light');
+        });
+      }
+    });
+
+    // Следим за изменениями системных настроек (если тема не выбрана явно)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  })();
+</script><div class="theme-toggle" data-astro-cid-lfoluaxz> <input type="checkbox" id="theme-toggle" class="theme-toggle__input" data-astro-cid-lfoluaxz> <label for="theme-toggle" class="theme-toggle__slider" data-astro-cid-lfoluaxz></label> </div> </div> </div> </header> <!--  -->  <article class="markdown__container page"> <h2 id="1-клиентский-js-внутри-компонента-для-интерактивности">1. Клиентский JS внутри компонента (для интерактивности)</h2>
 <p>Используйте <code>&#x3C;script></code> тег в вашем <strong>.astro</strong> файле:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="astro"><code><span class="line"><span style="color:#6A737D">---</span></span>
 <span class="line"><span style="color:#6A737D">// Серверный код (выполняется при сборке)</span></span>

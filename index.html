@@ -1,2 +1,63 @@
-<!DOCTYPE html><html lang="ru"> <head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.7.13"><!-- Базовые иконки --><link rel="icon" href="/favicon/favicon.ico" sizes="any"><link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml"><!-- Адаптивные иконки --><link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png"><link rel="manifest" href="/favicon/site.webmanifest"><title>Главная</title><link rel="stylesheet" href="/astro-template_v-01/assets/contacts-DRjbHvch.css">
-<link rel="stylesheet" href="/astro-template_v-01/assets/post01-qN9Ym0pc.css"></head> <body class="wrapper light"> <header class="header" data-astro-cid-x3onawaz> <div class="header__container" data-astro-cid-x3onawaz> <nav class="header__nav" data-astro-cid-x3onawaz> <ul class="header__menu" data-astro-cid-x3onawaz> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/" data-astro-cid-x3onawaz="true"> Главная </a></li> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/posts/" data-astro-cid-x3onawaz="true"> Посты </a></li> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/contacts/" data-astro-cid-x3onawaz="true"> Мои контакты </a></li> </ul> </nav> </div> </header> <!--  -->  <main class="page">  <div class="hero"> <div class="hero__container"> <h1>Главная</h1> <p>Сейчас должен сгенерировать файл стилей</p> <div class="test-components"> <div class="test-components__container"> <div class="test-components__card"> <h3 class="test-components__title">Card Title</h3> <h4 class="test-components__subtitle">Card Subtitle</h4> <img src="/astro-template_v-01/assets/bg-01-C9E5LUaV_w0dP9.webp" alt="foto test-components" width="366" height="146" loading="lazy" decoding="async" class="test-components__card-img"> <p class="test-components__card-text">Это изображение добавлено через встроенный Image </p> </div> <div class="test-components__card"> <h3 class="test-components__title">Card Title</h3> <h4 class="test-components__subtitle">Card Subtitle</h4> <img src="/astro-template_v-01/assets/bg-02-UY4Lb4C-_1UQP8Y.webp" alt="foto test-components" width="366" height="146" loading="lazy" decoding="async" class="test-components__card-img"> <p class="test-components__card-text">Это изображение добавлено через встроенный Image </p> </div> <div class="test-components__card"> <h3 class="test-components__title">Card Title</h3> <h4 class="test-components__subtitle">Card Subtitle</h4> <img src="/astro-template_v-01/assets/bg-03-UOU7RUNW_qHmlV.webp" alt="foto test-components" width="366" height="146" loading="lazy" decoding="async" class="test-components__card-img"> <p class="test-components__card-text">Это изображение добавлено через встроенный Image </p> </div> </div> </div> </div> </div>  </main> <footer class="footer"> <div class="footer__container"> <p>Footer</p> </div> </footer> </body></html>
+<!DOCTYPE html><html lang="ru"> <head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.7.13"><!-- Базовые иконки --><link rel="icon" href="/favicon/favicon.ico" sizes="any"><link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml"><!-- Адаптивные иконки --><link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png"><link rel="manifest" href="/favicon/site.webmanifest"><title>Главная</title><link rel="stylesheet" href="/astro-template_v-01/assets/contacts-YQypp6-T.css">
+<link rel="stylesheet" href="/astro-template_v-01/assets/index-DpRSV6wU.css">
+<link rel="stylesheet" href="/astro-template_v-01/assets/post01-BZccmOHT.css"></head> <body class="wrapper light"> <header class="header" data-astro-cid-x3onawaz> <div class="header__container" data-astro-cid-x3onawaz> <nav class="header__nav" data-astro-cid-x3onawaz> <ul class="header__menu" data-astro-cid-x3onawaz> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/" data-astro-cid-x3onawaz="true"> Главная </a></li> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/posts/" data-astro-cid-x3onawaz="true"> Посты </a></li> <li class="header__menu-item" data-astro-cid-x3onawaz><a href="/astro-template_v-01/contacts/" data-astro-cid-x3onawaz="true"> Мои контакты </a></li> </ul> </nav> <div class="header__theme-togle" data-astro-cid-x3onawaz> <script>
+  (function() {
+    // Функция для установки темы
+    function setTheme(theme) {
+      document.body.classList.remove('light', 'dark');
+      document.body.classList.add(theme);
+      localStorage.setItem('theme', theme);
+      
+      // Обновляем чекбокс
+      const toggle = document.getElementById('theme-toggle');
+      if (toggle) {
+        toggle.checked = theme === 'dark';
+      }
+    }
+
+    // Функция для определения начальной темы
+    function initTheme() {
+      // Проверяем классы на body
+      if (document.body.classList.contains('light')) {
+        return 'light';
+      }
+      if (document.body.classList.contains('dark')) {
+        return 'dark';
+      }
+      
+      // Проверяем localStorage
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        return savedTheme;
+      }
+      
+      // Проверяем системные настройки
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches 
+        ? 'dark' 
+        : 'light';
+    }
+
+    // Инициализация темы
+    const currentTheme = initTheme();
+    setTheme(currentTheme);
+
+    // Обработчик переключения темы
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      if (toggle) {
+        toggle.checked = currentTheme === 'dark';
+        
+        toggle.addEventListener('change', (e) => {
+          setTheme(e.target.checked ? 'dark' : 'light');
+        });
+      }
+    });
+
+    // Следим за изменениями системных настроек (если тема не выбрана явно)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  })();
+</script><div class="theme-toggle" data-astro-cid-lfoluaxz> <input type="checkbox" id="theme-toggle" class="theme-toggle__input" data-astro-cid-lfoluaxz> <label for="theme-toggle" class="theme-toggle__slider" data-astro-cid-lfoluaxz></label> </div> </div> </div> </header> <!--  -->  <main class="page">  <div class="hero"> <div class="hero__container"> <h1>Главная</h1> <p>Сейчас должен сгенерировать файл стилей</p> </div> <div class="about" data-astro-cid-zsov6f23> <div class="about__container" data-astro-cid-zsov6f23> <div class="about__col" data-astro-cid-zsov6f23> <h3 class="about__title" data-astro-cid-zsov6f23>About title</h3> <h3 class="about__subtitle" data-astro-cid-zsov6f23>About subtitle</h3> </div> <div class="about__col" data-astro-cid-zsov6f23> <img class="about__img" src="" alt="foto about" data-astro-cid-zsov6f23> </div> </div> </div>  </div>  </main> <footer class="footer"> <div class="footer__container"> <p>Footer</p> </div> </footer> </body></html>
