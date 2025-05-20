@@ -1,0 +1,87 @@
+---
+// components/Logo.astro
+import Link from './Link.astro';
+
+interface Props {
+  width?: number;
+  height?: number;
+  linked?: boolean;
+  className?: string;
+}
+
+const {
+  width = 120,
+  height = 40,
+  linked = true,
+  className = ''
+} = Astro.props;
+
+// Значение по умолчанию для SSR
+let theme = 'light';
+if (typeof document !== 'undefined') {
+  theme = document.documentElement.getAttribute('data-theme') || 'light';
+}
+const logoPath = `/icons/logo-${theme === 'dark' ? 'dark' : 'light'}.svg`;
+---
+
+{linked ? (
+  <Link href="/" aria-label="На главную" class={`logo-link ${className}`}>
+    <img
+      src={logoPath}
+      alt="Логотип компании"
+      width={width}
+      height={height}
+      class="logo"
+      loading="eager"
+      data-theme={theme}
+    />
+  </Link>
+) : (
+  <img
+    src={logoPath}
+    alt=""
+    role="presentation"
+    width={width}
+    height={height}
+    class={`logo ${className}`}
+    loading="eager"
+    data-theme={theme}
+  />
+)}
+
+<style lang="scss">
+.logo {
+  display: block;
+  transition: opacity 0.3s ease;
+  object-fit: contain;
+
+  &-link:hover & {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    width: 100px !important;
+    height: auto !important;
+  }
+}
+</style>
+
+<script is:inline>
+// Автоматическое обновление при смене темы
+const updateLogos = () => {
+  const theme = document.documentElement.getAttribute('data-theme') || 'light';
+  document.querySelectorAll('.logo').forEach(logo => {
+    logo.src = `/icons/logo-${theme === 'dark' ? 'dark' : 'light'}.svg`;
+    logo.setAttribute('data-theme', theme);
+  });
+};
+
+// Инициализация
+document.addEventListener('DOMContentLoaded', () => {
+  updateLogos();
+  new MutationObserver(updateLogos).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme']
+  });
+});
+</script>
