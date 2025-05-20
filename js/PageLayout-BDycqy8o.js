@@ -1,7 +1,7 @@
 import { d as createAstro, c as createComponent, b as addAttribute, e as renderHead, r as renderComponent, f as renderSlot, a as renderTemplate } from './astro/server-Cyo_KTo2.js';
 import 'kleur/colors';
 /* empty css                           */
-import { $ as $$Header, a as $$Footer } from './Footer-DKWH950D.js';
+import { $ as $$Header, a as $$Footer } from './Footer-Djg0Phoq.js';
 
 const $$Astro = createAstro("https://web22des.github.io");
 const $$PageLayout = createComponent(($$result, $$props, $$slots) => {
