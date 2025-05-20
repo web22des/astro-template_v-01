@@ -1,65 +1,69 @@
-<!DOCTYPE html><html lang="ru" class="light"> <head><meta charset="utf-8"><!-- Базовые иконки --><link rel="icon" href="/favicon/favicon.ico" sizes="any"><link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml"><!-- Адаптивные иконки --><link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png"><link rel="manifest" href="/favicon/site.webmanifest"><title>Лучшая практика работы с Markdown/MDX и классами в Astro (официальный подход + рекомендации)</title><link rel="stylesheet" href="/astro-template_v-01/assets/post01-CcxBantQ.css"></head> <body class="wrapper"> <div class="header" data-astro-cid-x3onawaz> <div class="header__container" data-astro-cid-x3onawaz> <div class="header__body" data-astro-cid-x3onawaz> <div class="header__logo" data-astro-cid-x3onawaz>
-Logo
-</div> <div class="header__nav" data-astro-cid-x3onawaz> <nav class="nav-menu" data-astro-cid-sjsrs553> <ul class="nav-menu__list" data-astro-cid-sjsrs553> <li class="nav-menu__item " data-astro-cid-sjsrs553> <a href="/astro-template_v-01/" class="nav-menu__link" data-astro-cid-sjsrs553="true"> Главная </a>  </li><li class="nav-menu__item " data-astro-cid-sjsrs553> <a href="/astro-template_v-01/gallery/" class="nav-menu__link" data-astro-cid-sjsrs553="true"> Галерея </a>  </li><li class="nav-menu__item has-dropdown" data-astro-cid-sjsrs553> <a href="/astro-template_v-01/news/" class="nav-menu__link" aria-expanded="false" aria-haspopup="true" data-astro-cid-sjsrs553="true"> Новости<span class="_icon-chevron-down nav-menu__icon" aria-hidden="true"></span> </a> <ul class="nav-menu__submenu" data-astro-cid-sjsrs553> <li class="nav-menu__subitem" data-astro-cid-sjsrs553> <a href="/astro-template_v-01/posts/" class="nav-menu__sublink" data-astro-cid-sjsrs553="true"> Блог </a> </li><li class="nav-menu__subitem" data-astro-cid-sjsrs553> <a href="/astro-template_v-01/news/news-history" class="nav-menu__sublink" data-astro-cid-sjsrs553="true"> Новости </a> </li> </ul> </li><li class="nav-menu__item " data-astro-cid-sjsrs553> <a href="/astro-template_v-01/contacts/" class="nav-menu__link" data-astro-cid-sjsrs553="true"> Контакты </a>  </li> </ul> </nav>  </div> <div class="header__contacts" data-astro-cid-x3onawaz> <div class="contacts-icons"> <!-- Телефон --> <!--  Добавляем роль button для явного указания интерактивности --> <!-- Убедимся, что элемент фокусируем --> <a href="tel:+71234567890" class="contacts-icons__link contacts-icons__link--phone" aria-label="Позвонить по телефону" role="button" tabindex="0"> <span class="contacts-icons__icon" aria-hidden="true"> <span class="_icon-phone"></span> </span> <span class="visually-hidden">71234567890</span> </a> <!-- WhatsApp --> <a href="https://wa.me/71234567890" class="contacts-icons__link contacts-icons__link--whatsapp" aria-label="Написать в WhatsApp" target="_blank" rel="noopener noreferrer" role="button" tabindex="0"> <span class="contacts-icons__icon" aria-hidden="true"> <span class="_icon-whatsapp"></span> </span> <span class="visually-hidden">WhatsApp</span> </a> <!-- Telegram --> <a href="https://t.me/username" class="contacts-icons__link contacts-icons__link--telegram" aria-label="Написать в Telegram" target="_blank" rel="noopener noreferrer" role="button" tabindex="0"> <span class="contacts-icons__icon" aria-hidden="true"> <span class="_icon-telegram"></span> </span> <span class="visually-hidden">Telegram</span> </a> </div> </div> <div class="header__burger" data-astro-cid-x3onawaz></div> </div> <div class="header__footer" data-astro-cid-x3onawaz> <script>
-  (function() {
-    // Функция для установки темы
-    function setTheme(theme) {
-      document.body.classList.remove('light', 'dark');
-      document.body.classList.add(theme);
-      localStorage.setItem('theme', theme);
-      
-      // Обновляем чекбокс
-      const toggle = document.getElementById('theme-toggle');
-      if (toggle) {
-        toggle.checked = theme === 'dark';
-      }
+<!DOCTYPE html><html lang="ru" class="light"> <head><meta charset="utf-8"><!-- Базовые иконки --><link rel="icon" href="/favicon/favicon.ico" sizes="any"><link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml"><!-- Адаптивные иконки --><link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png"><link rel="manifest" href="/favicon/site.webmanifest"><title>Лучшая практика работы с Markdown/MDX и классами в Astro (официальный подход + рекомендации)</title><link rel="stylesheet" href="/astro-template_v-01/assets/post01-DIETVyvV.css"></head> <body class="wrapper"> <div class="header" data-astro-cid-x3onawaz> <div class="header__container" data-astro-cid-x3onawaz> <div class="header__body" data-astro-cid-x3onawaz> <div class="header__logo" data-astro-cid-x3onawaz> <a href="/astro-template_v-01/" aria-label="На главную" class="logo-link " data-astro-cid-bt5hbwbt="true"> <img src="/icons/logo-light.svg" alt="Логотип компании" width="120" height="40" class="logo" loading="eager" data-theme="light" data-astro-cid-bt5hbwbt> </a><script>
+// Автоматическое обновление при смене темы
+const updateLogos = () => {
+  const theme = document.documentElement.getAttribute('data-theme') || 'light';
+  document.querySelectorAll('.logo').forEach(logo => {
+    logo.src = `/icons/logo-${theme === 'dark' ? 'dark' : 'light'}.svg`;
+    logo.setAttribute('data-theme', theme);
+  });
+};
+
+// Инициализация
+document.addEventListener('DOMContentLoaded', () => {
+  updateLogos();
+  new MutationObserver(updateLogos).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme']
+  });
+});
+</script> </div> <div class="header__nav" data-astro-cid-x3onawaz> <nav class="nav-menu" data-astro-cid-sjsrs553> <ul class="nav-menu__list" data-astro-cid-sjsrs553> <li class="nav-menu__item " data-astro-cid-sjsrs553> <a href="/astro-template_v-01/" class="nav-menu__link" data-astro-cid-sjsrs553="true"> Главная </a>  </li><li class="nav-menu__item " data-astro-cid-sjsrs553> <a href="/astro-template_v-01/gallery/" class="nav-menu__link" data-astro-cid-sjsrs553="true"> Галерея </a>  </li><li class="nav-menu__item has-dropdown" data-astro-cid-sjsrs553> <a href="/astro-template_v-01/news/" class="nav-menu__link" aria-expanded="false" aria-haspopup="true" data-astro-cid-sjsrs553="true"> Новости<span class="_icon-chevron-down nav-menu__icon" aria-hidden="true"></span> </a> <ul class="nav-menu__submenu" data-astro-cid-sjsrs553> <li class="nav-menu__subitem" data-astro-cid-sjsrs553> <a href="/astro-template_v-01/posts/" class="nav-menu__sublink" data-astro-cid-sjsrs553="true"> Блог </a> </li><li class="nav-menu__subitem" data-astro-cid-sjsrs553> <a href="/astro-template_v-01/news/news-history" class="nav-menu__sublink" data-astro-cid-sjsrs553="true"> Новости </a> </li> </ul> </li><li class="nav-menu__item " data-astro-cid-sjsrs553> <a href="/astro-template_v-01/contacts/" class="nav-menu__link" data-astro-cid-sjsrs553="true"> Контакты </a>  </li> </ul> </nav>  </div> <div class="header__contacts" data-astro-cid-x3onawaz> <div class="contacts-icons"> <!-- Телефон --> <!--  Добавляем роль button для явного указания интерактивности --> <!-- Убедимся, что элемент фокусируем --> <a href="tel:+71234567890" class="contacts-icons__link contacts-icons__link--phone" aria-label="Позвонить по телефону" role="button" tabindex="0"> <span class="contacts-icons__icon" aria-hidden="true"> <span class="_icon-phone"></span> </span> <span class="visually-hidden">71234567890</span> </a> <!-- WhatsApp --> <a href="https://wa.me/71234567890" class="contacts-icons__link contacts-icons__link--whatsapp" aria-label="Написать в WhatsApp" target="_blank" rel="noopener noreferrer" role="button" tabindex="0"> <span class="contacts-icons__icon" aria-hidden="true"> <span class="_icon-whatsapp"></span> </span> <span class="visually-hidden">WhatsApp</span> </a> <!-- Telegram --> <a href="https://t.me/username" class="contacts-icons__link contacts-icons__link--telegram" aria-label="Написать в Telegram" target="_blank" rel="noopener noreferrer" role="button" tabindex="0"> <span class="contacts-icons__icon" aria-hidden="true"> <span class="_icon-telegram"></span> </span> <span class="visually-hidden">Telegram</span> </a> </div> </div> <div class="header__burger" data-astro-cid-x3onawaz></div> </div> <div class="header__footer" data-astro-cid-x3onawaz> <script>
+(function() {
+  // Функция для установки темы
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.body.classList.remove('light', 'dark');
+    document.body.classList.add(theme);
+    localStorage.setItem('theme', theme);
+    
+    // Обновляем чекбокс
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+      toggle.checked = theme === 'dark';
     }
+  }
 
-    // Функция для определения начальной темы
-    function initTheme() {
-      // Проверяем классы на body
-      if (document.body.classList.contains('light')) {
-        return 'light';
-      }
-      if (document.body.classList.contains('dark')) {
-        return 'dark';
-      }
-      
-      // Проверяем localStorage
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-        return savedTheme;
-      }
-      
-      // Проверяем системные настройки
-      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches 
-        ? 'dark' 
-        : 'light';
+  // Функция для определения начальной темы
+  function initTheme() {
+    // 1. Проверяем localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) return savedTheme;
+    
+    // 2. Проверяем системные настройки
+    return window.matchMedia('(prefers-color-scheme: dark)').matches 
+      ? 'dark' 
+      : 'light';
+  }
+
+  // Инициализация темы
+  setTheme(initTheme());
+
+  // Обработчик переключения темы
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+      toggle.addEventListener('change', (e) => {
+        setTheme(e.target.checked ? 'dark' : 'light');
+      });
     }
+  });
 
-    // Инициализация темы
-    const currentTheme = initTheme();
-    setTheme(currentTheme);
-
-    // Обработчик переключения темы
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.getElementById('theme-toggle');
-      if (toggle) {
-        toggle.checked = currentTheme === 'dark';
-        
-        toggle.addEventListener('change', (e) => {
-          setTheme(e.target.checked ? 'dark' : 'light');
-        });
-      }
-    });
-
-    // Следим за изменениями системных настроек (если тема не выбрана явно)
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
-    });
-  })();
+  // Следим за изменениями системных настроек
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) {
+      setTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+})();
 </script><div class="theme-toggle" data-astro-cid-lfoluaxz> <input type="checkbox" id="theme-toggle" class="theme-toggle__input" data-astro-cid-lfoluaxz> <label for="theme-toggle" class="theme-toggle__slider" data-astro-cid-lfoluaxz></label> </div> </div> </div> </div> <!--  -->  <article class="markdown__container page"> <h1 id="лучшая-практика-работы-с-markdownmdx-и-классами-в-astro-официальный-подход--рекомендации">Лучшая практика работы с Markdown/MDX и классами в Astro (официальный подход + рекомендации)</h1>
 <h2 id="1-официальный-подход-по-документации-astro">1. Официальный подход (по документации Astro)</h2>
 <h3 id="11-использование-layout--глобальных-стилей">1.1. Использование layout + глобальных стилей</h3>
