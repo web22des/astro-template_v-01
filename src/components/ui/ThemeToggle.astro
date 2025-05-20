@@ -8,9 +8,9 @@ const { cookies } = Astro as APIContext;
 let initialTheme = 'light'; // значение по умолчанию
 
 // Безопасное получение темы из cookie (пришлось отключить так как выдает предупреждение "Astro.request.headers` was used when rendering")
-// const cookieTheme = cookies.get('theme')?.value;
-// initialTheme = cookieTheme || 
-//                     (Astro.request.headers.get('sec-ch-prefers-color-scheme') === 'dark' ? 'dark' : 'light');
+const cookieTheme = cookies.get('theme')?.value;
+initialTheme = cookieTheme || 
+                    (Astro.request.headers.get('sec-ch-prefers-color-scheme') === 'dark' ? 'dark' : 'light');
 // Подключаем стили прямо в компоненте
 
 ---

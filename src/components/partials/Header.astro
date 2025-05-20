@@ -1,47 +1,90 @@
 ---
-import Link from "../ui/Link.astro";
 
 import ThemeToggle from "../ui/ThemeToggle.astro";
 import ContactsIcons from "../ui/social/ContactsIcons/ContactsIcons.astro";
+import NavMenu from "../ui/navigation/NavMenu.astro";
+const menuItems = [
+    {
+        title: 'Главная',
+        url: '/'
+        },
+        {
+        title: 'Галерея',
+        url: '/gallery/'
+        },
+                {
+        title: 'Новости',
+        url: '/news/',
+        children: [
+            { title: 'Блог', url: '/posts/' },
+            { title: 'Новости', url: '/news/news-history' }
+        ]
+    },
+        {
+        title: 'Контакты',
+        url: '/contacts/'
+        },
+        
+];
 ---
-<header class="header">
+<div class="header">
     <div class="header__container">
-        <nav class="header__nav">
-            <ul class="header__menu">
-                <li class="header__menu-item"><Link href="/">Главная</Link></li>
-                <li class="header__menu-item"><Link href="/posts/">Посты</Link></li>
-                <li class="header__menu-item"><Link href="/contacts/">Мои контакты</Link></li>
-            </ul>
-        </nav>
-        <div class="header__theme-togle">
+        <div class="header__body">
+            <div class="header__logo">
+                Logo
+            </div>
+            <div class="header__nav">
+                <NavMenu items={menuItems} />
+            </div>
+            <div class="header__contacts">
+                <ContactsIcons />
+            </div>
+            <div class="header__burger"></div>
+        </div>
+        <div class="header__footer">
             <ThemeToggle />
-            <ContactsIcons />
         </div>
     </div>
 
-</header>
+</div>
 
 <!--  -->
-<style>
+<style lang="scss">
 .header {
-    background-color: var(--md-sys-color-surface-container-high);
+background-color: var(--md-sys-color-surface-container-high);
     color: var(--md-sys-color-on-surface);
-}
-.header__container {
-}
-.header__nav {
-}
-.header__menu {
-    display: flex;
-    gap: 48px;
-    justify-content: center;
-    text-align: center;
+		&__container {
+            
+        }
+        
+        &__body {
+            
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
 
+        }
+
+		&__logo {
+            //color: tomato;
+            
+		}
+
+		&__nav {
+            
+		}
+
+		&__contacts {
+		}
+
+		&__footer {
+            display: flex;
+            justify-content: end;
+		}
 }
-.header__menu-item {
-}
-.header__menu-link {
-}
+
 </style>
+
 
 

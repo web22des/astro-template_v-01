@@ -8,3 +8,9 @@
 https://github.com/web22des/astro-template_v-01/tree/main
 
 
+Сегодня мы будем работать с фигма дизайном, а именно будем стилизовать header (без блока hero). Работать будем с Matherial Theme а именно с переменными цвета. Так что тебе нужно написать три варианта цветовой палитры
+1. Вариант для светлой и темной темы (но это не сложно так как переменные в обоих темах дублируються)
+2. Подобрать три варианта оформления цветом header-accent, header-base, header-contrast
+
+--top-bottom-bars-container:
+--top-bottom-bars-on-container:
