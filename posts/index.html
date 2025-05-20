@@ -1,34 +1,17 @@
-<!DOCTYPE html><html lang="ru"> <head><meta charset="utf-8"><!-- Добавляем meta-тег для системной темы --><meta name="color-scheme" content="light dark"><meta name="theme-color" content="var(--md-sys-color-background)"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.7.13"><!-- Базовые иконки --><link rel="icon" href="/favicon/favicon.ico" sizes="any"><link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml"><!-- Адаптивные иконки --><link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png"><link rel="manifest" href="/favicon/site.webmanifest"><title>Мои посты</title><link rel="stylesheet" href="/astro-template_v-01/assets/post01-ChkXi3Ie.css">
-<link rel="stylesheet" href="/astro-template_v-01/assets/contacts-DjoKYorJ.css"></head> <body class="wrapper"> <div class="header" data-astro-cid-x3onawaz> <div class="header__container" data-astro-cid-x3onawaz> <div class="header__body" data-astro-cid-x3onawaz> <div class="header__logo" data-astro-cid-x3onawaz> <a href="/astro-template_v-01/" aria-label="На главную" class="logo-link " data-astro-cid-bt5hbwbt="true"> <img src="/astro-template_v-01//icons/logo-light.svg" alt="Логотип компании" width="120" height="40" class="logo" loading="eager" data-theme="light" data-logo data-astro-cid-bt5hbwbt> </a><script>
-// Функция обновления логотипов
-const updateLogos = () => {
+<!DOCTYPE html><html lang="ru"> <head><meta charset="utf-8"><!-- Добавляем meta-тег для системной темы --><meta name="color-scheme" content="light dark"><meta name="theme-color" content="var(--md-sys-color-background)"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.7.13"><!-- Базовые иконки --><link rel="icon" href="/favicon/favicon.ico" sizes="any"><link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml"><!-- Адаптивные иконки --><link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png"><link rel="manifest" href="/favicon/site.webmanifest"><title>Мои посты</title><link rel="stylesheet" href="/astro-template_v-01/assets/post01-a16FaNn5.css">
+<link rel="stylesheet" href="/astro-template_v-01/assets/contacts-DjoKYorJ.css"></head> <body class="wrapper"> <div class="header" data-astro-cid-x3onawaz> <div class="header__container" data-astro-cid-x3onawaz> <div class="header__body" data-astro-cid-x3onawaz> <div class="header__logo" data-astro-cid-x3onawaz> <img src="/astro-template_v-01/icons/logo-light.svg" alt="Логотип"> <script>
+// Автоматическое обновление пути при смене темы
+const updateLogo = () => {
   const theme = document.documentElement.getAttribute('data-theme') || 'light';
-  const logos = document.querySelectorAll('[data-logo]');
-  
-  logos.forEach(logo => {
-    logo.src = `/icons/logo-${theme === 'dark' ? 'dark' : 'light'}.svg`;
-    logo.setAttribute('data-theme', theme);
+  const base = '${import.meta.env.BASE_URL}';
+  document.querySelectorAll('[data-logo]').forEach(logo => {
+    logo.src = `${base}icons/logo-${theme}.svg`;
   });
 };
 
-// Инициализация при загрузке
-document.addEventListener('DOMContentLoaded', () => {
-  // Первоначальная установка
-  updateLogos();
-  
-  // Отслеживание изменений темы
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach(mutation => {
-      if (mutation.attributeName === 'data-theme') {
-        updateLogos();
-      }
-    });
-  });
-
-  observer.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ['data-theme']
-  });
+new MutationObserver(updateLogo).observe(document.documentElement, {
+  attributes: true,
+  attributeFilter: ['data-theme']
 });
 </script> </div> <div class="header__nav" data-astro-cid-x3onawaz> <nav class="nav-menu" data-astro-cid-sjsrs553> <ul class="nav-menu__list" data-astro-cid-sjsrs553> <li class="nav-menu__item " data-astro-cid-sjsrs553> <a href="/astro-template_v-01/" class="nav-menu__link" data-astro-cid-sjsrs553="true"> Главная </a>  </li><li class="nav-menu__item " data-astro-cid-sjsrs553> <a href="/astro-template_v-01/gallery/" class="nav-menu__link" data-astro-cid-sjsrs553="true"> Галерея </a>  </li><li class="nav-menu__item has-dropdown" data-astro-cid-sjsrs553> <a href="/astro-template_v-01/news/" class="nav-menu__link" aria-expanded="false" aria-haspopup="true" data-astro-cid-sjsrs553="true"> Новости<span class="_icon-chevron-down nav-menu__icon" aria-hidden="true"></span> </a> <ul class="nav-menu__submenu" data-astro-cid-sjsrs553> <li class="nav-menu__subitem" data-astro-cid-sjsrs553> <a href="/astro-template_v-01/posts/" class="nav-menu__sublink" data-astro-cid-sjsrs553="true"> Блог </a> </li><li class="nav-menu__subitem" data-astro-cid-sjsrs553> <a href="/astro-template_v-01/news/news-history" class="nav-menu__sublink" data-astro-cid-sjsrs553="true"> Новости </a> </li> </ul> </li><li class="nav-menu__item " data-astro-cid-sjsrs553> <a href="/astro-template_v-01/contacts/" class="nav-menu__link" data-astro-cid-sjsrs553="true"> Контакты </a>  </li> </ul> </nav>  </div> <div class="header__contacts" data-astro-cid-x3onawaz> <div class="contacts-icons"> <!-- Телефон --> <!--  Добавляем роль button для явного указания интерактивности --> <!-- Убедимся, что элемент фокусируем --> <a href="tel:+71234567890" class="contacts-icons__link contacts-icons__link--phone" aria-label="Позвонить по телефону" role="button" tabindex="0"> <span class="contacts-icons__icon" aria-hidden="true"> <span class="_icon-phone"></span> </span> <span class="visually-hidden">71234567890</span> </a> <!-- WhatsApp --> <a href="https://wa.me/71234567890" class="contacts-icons__link contacts-icons__link--whatsapp" aria-label="Написать в WhatsApp" target="_blank" rel="noopener noreferrer" role="button" tabindex="0"> <span class="contacts-icons__icon" aria-hidden="true"> <span class="_icon-whatsapp"></span> </span> <span class="visually-hidden">WhatsApp</span> </a> <!-- Telegram --> <a href="https://t.me/username" class="contacts-icons__link contacts-icons__link--telegram" aria-label="Написать в Telegram" target="_blank" rel="noopener noreferrer" role="button" tabindex="0"> <span class="contacts-icons__icon" aria-hidden="true"> <span class="_icon-telegram"></span> </span> <span class="visually-hidden">Telegram</span> </a> </div> </div> <div class="header__burger" data-astro-cid-x3onawaz></div> </div> <div class="header__footer" data-astro-cid-x3onawaz> <div class="theme-toggle" data-astro-cid-lfoluaxz> <input type="checkbox" id="theme-toggle" class="theme-toggle__input" data-astro-cid-lfoluaxz> <label for="theme-toggle" class="theme-toggle__slider" data-astro-cid-lfoluaxz></label> </div> <script>
 (function() {

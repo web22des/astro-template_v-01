@@ -7,9 +7,9 @@ var __freeze$1 = Object.freeze;
 var __defProp$1 = Object.defineProperty;
 var __template$1 = (cooked, raw) => __freeze$1(__defProp$1(cooked, "raw", { value: __freeze$1(cooked.slice()) }));
 var _a$1;
-const $$Astro$4 = createAstro("https://web22des.github.io");
+const $$Astro$3 = createAstro("https://web22des.github.io");
 const $$ThemeToggle = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$4, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$3, $$props, $$slots);
   Astro2.self = $$ThemeToggle;
   const { initialTheme = "light" } = Astro2.props;
   return renderTemplate(_a$1 || (_a$1 = __template$1(["", '<div class="theme-toggle" data-astro-cid-lfoluaxz> <input type="checkbox" id="theme-toggle" class="theme-toggle__input"', ` data-astro-cid-lfoluaxz> <label for="theme-toggle" class="theme-toggle__slider" data-astro-cid-lfoluaxz></label> </div> <script>
@@ -52,26 +52,26 @@ const $$ContactsIcons = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<div class="contacts-icons"> <!-- Телефон --> <!--  Добавляем роль button для явного указания интерактивности --> <!-- Убедимся, что элемент фокусируем --> <a${addAttribute(`tel:+${PhoneUser}`, "href")} class="contacts-icons__link contacts-icons__link--phone" aria-label="Позвонить по телефону" role="button" tabindex="0"> <span class="contacts-icons__icon" aria-hidden="true"> <span class="_icon-phone"></span> </span> <span class="visually-hidden">${PhoneUser}</span> </a> <!-- WhatsApp --> <a${addAttribute(`https://wa.me/${WhatsappUser}`, "href")} class="contacts-icons__link contacts-icons__link--whatsapp" aria-label="Написать в WhatsApp" target="_blank" rel="noopener noreferrer" role="button" tabindex="0"> <span class="contacts-icons__icon" aria-hidden="true"> <span class="_icon-whatsapp"></span> </span> <span class="visually-hidden">WhatsApp</span> </a> <!-- Telegram --> <a${addAttribute(`https://t.me/${TelegramUser}`, "href")} class="contacts-icons__link contacts-icons__link--telegram" aria-label="Написать в Telegram" target="_blank" rel="noopener noreferrer" role="button" tabindex="0"> <span class="contacts-icons__icon" aria-hidden="true"> <span class="_icon-telegram"></span> </span> <span class="visually-hidden">Telegram</span> </a> </div>`;
 }, "/home/runner/work/astro-template_v-01/astro-template_v-01/src/components/ui/social/ContactsIcons/ContactsIcons.astro", void 0);
 
-const $$Astro$3 = createAstro("https://web22des.github.io");
+const $$Astro$2 = createAstro("https://web22des.github.io");
 const $$Icon = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$3, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$2, $$props, $$slots);
   Astro2.self = $$Icon;
   const { name, class: className } = Astro2.props;
   return renderTemplate`${maybeRenderHead()}<span${addAttribute(`_icon-${name} ${className || ""}`, "class")} aria-hidden="true"></span>`;
 }, "/home/runner/work/astro-template_v-01/astro-template_v-01/src/components/ui/icon/Icon.astro", void 0);
 
-const $$Astro$2 = createAstro("https://web22des.github.io");
+const $$Astro$1 = createAstro("https://web22des.github.io");
 const $$Link = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$2, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$Link;
   const { href, ...props } = Astro2.props;
   const resolvedHref = "/astro-template_v-01/" + href.replace(/^\//, "");
   return renderTemplate`${maybeRenderHead()}<a${addAttribute(resolvedHref, "href")}${spreadAttributes(props)}> ${renderSlot($$result, $$slots["default"])} </a>`;
 }, "/home/runner/work/astro-template_v-01/astro-template_v-01/src/components/ui/Link.astro", void 0);
 
-const $$Astro$1 = createAstro("https://web22des.github.io");
+const $$Astro = createAstro("https://web22des.github.io");
 const $$NavMenu = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$NavMenu;
   const { items = [] } = Astro2.props;
   return renderTemplate`${maybeRenderHead()}<nav class="nav-menu" data-astro-cid-sjsrs553> <ul class="nav-menu__list" data-astro-cid-sjsrs553> ${items.map((item) => renderTemplate`<li${addAttribute(`nav-menu__item ${item.children ? "has-dropdown" : ""}`, "class")} data-astro-cid-sjsrs553> ${renderComponent($$result, "Link", $$Link, { "href": item.url, "class": "nav-menu__link", "aria-expanded": item.children ? "false" : null, "aria-haspopup": item.children ? "true" : null, "data-astro-cid-sjsrs553": true }, { "default": ($$result2) => renderTemplate`${item.title}${item.children && renderTemplate`${renderComponent($$result2, "Icon", $$Icon, { "name": "chevron-down", "class": "nav-menu__icon", "data-astro-cid-sjsrs553": true })}`}` })} ${item.children && renderTemplate`<ul class="nav-menu__submenu" data-astro-cid-sjsrs553> ${item.children.map((subItem) => renderTemplate`<li class="nav-menu__subitem" data-astro-cid-sjsrs553> ${renderComponent($$result, "Link", $$Link, { "href": subItem.url, "class": "nav-menu__sublink", "data-astro-cid-sjsrs553": true }, { "default": ($$result2) => renderTemplate`${subItem.title}` })} </li>`)} </ul>`} </li>`)} </ul> </nav> `;
@@ -81,20 +81,11 @@ var __freeze = Object.freeze;
 var __defProp = Object.defineProperty;
 var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(raw || cooked.slice()) }));
 var _a;
-const $$Astro = createAstro("https://web22des.github.io");
 const $$Logo = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
-  Astro2.self = $$Logo;
-  const {
-    width = 120,
-    height = 40,
-    linked = true,
-    className = ""
-  } = Astro2.props;
-  const defaultTheme = "light";
+  const basePath = "/astro-template_v-01/";
   const theme = typeof document !== "undefined" ? document.documentElement.getAttribute("data-theme") || "light" : "light";
-  const logoPath = `${"/astro-template_v-01/"}/icons/logo-${theme === "dark" ? "dark" : "light"}.svg`;
-  return renderTemplate(_a || (_a = __template(["", "<script>\n// Функция обновления логотипов\nconst updateLogos = () => {\n  const theme = document.documentElement.getAttribute('data-theme') || 'light';\n  const logos = document.querySelectorAll('[data-logo]');\n  \n  logos.forEach(logo => {\n    logo.src = `/icons/logo-${theme === 'dark' ? 'dark' : 'light'}.svg`;\n    logo.setAttribute('data-theme', theme);\n  });\n};\n\n// Инициализация при загрузке\ndocument.addEventListener('DOMContentLoaded', () => {\n  // Первоначальная установка\n  updateLogos();\n  \n  // Отслеживание изменений темы\n  const observer = new MutationObserver((mutations) => {\n    mutations.forEach(mutation => {\n      if (mutation.attributeName === 'data-theme') {\n        updateLogos();\n      }\n    });\n  });\n\n  observer.observe(document.documentElement, {\n    attributes: true,\n    attributeFilter: ['data-theme']\n  });\n});\n</script>"], ["", "<script>\n// Функция обновления логотипов\nconst updateLogos = () => {\n  const theme = document.documentElement.getAttribute('data-theme') || 'light';\n  const logos = document.querySelectorAll('[data-logo]');\n  \n  logos.forEach(logo => {\n    logo.src = \\`/icons/logo-\\${theme === 'dark' ? 'dark' : 'light'}.svg\\`;\n    logo.setAttribute('data-theme', theme);\n  });\n};\n\n// Инициализация при загрузке\ndocument.addEventListener('DOMContentLoaded', () => {\n  // Первоначальная установка\n  updateLogos();\n  \n  // Отслеживание изменений темы\n  const observer = new MutationObserver((mutations) => {\n    mutations.forEach(mutation => {\n      if (mutation.attributeName === 'data-theme') {\n        updateLogos();\n      }\n    });\n  });\n\n  observer.observe(document.documentElement, {\n    attributes: true,\n    attributeFilter: ['data-theme']\n  });\n});\n</script>"])), linked ? renderTemplate`${renderComponent($$result, "Link", $$Link, { "href": "/", "aria-label": "На главную", "class": `logo-link ${className}`, "data-astro-cid-bt5hbwbt": true }, { "default": ($$result2) => renderTemplate`${maybeRenderHead()}<img${addAttribute(logoPath, "src")} alt="Логотип компании"${addAttribute(width, "width")}${addAttribute(height, "height")} class="logo" loading="eager"${addAttribute(defaultTheme, "data-theme")} data-logo data-astro-cid-bt5hbwbt>` })}` : renderTemplate`<img${addAttribute(logoPath, "src")} alt="logo company" role="presentation"${addAttribute(width, "width")}${addAttribute(height, "height")}${addAttribute(`logo ${className}`, "class")} loading="eager"${addAttribute(defaultTheme, "data-theme")} data-logo data-astro-cid-bt5hbwbt>`);
+  const logoPath = `${basePath}icons/logo-${theme}.svg`;
+  return renderTemplate(_a || (_a = __template(["", "<img", " alt=\"Логотип\"> <script>\n// Автоматическое обновление пути при смене темы\nconst updateLogo = () => {\n  const theme = document.documentElement.getAttribute('data-theme') || 'light';\n  const base = '${import.meta.env.BASE_URL}';\n  document.querySelectorAll('[data-logo]').forEach(logo => {\n    logo.src = `${base}icons/logo-${theme}.svg`;\n  });\n};\n\nnew MutationObserver(updateLogo).observe(document.documentElement, {\n  attributes: true,\n  attributeFilter: ['data-theme']\n});\n</script>"], ["", "<img", " alt=\"Логотип\"> <script>\n// Автоматическое обновление пути при смене темы\nconst updateLogo = () => {\n  const theme = document.documentElement.getAttribute('data-theme') || 'light';\n  const base = '\\${import.meta.env.BASE_URL}';\n  document.querySelectorAll('[data-logo]').forEach(logo => {\n    logo.src = \\`\\${base}icons/logo-\\${theme}.svg\\`;\n  });\n};\n\nnew MutationObserver(updateLogo).observe(document.documentElement, {\n  attributes: true,\n  attributeFilter: ['data-theme']\n});\n</script>"])), maybeRenderHead(), addAttribute(logoPath, "src"));
 }, "/home/runner/work/astro-template_v-01/astro-template_v-01/src/components/ui/Logo.astro", void 0);
 
 const $$Header = createComponent(($$result, $$props, $$slots) => {
