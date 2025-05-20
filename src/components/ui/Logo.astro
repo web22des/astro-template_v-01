@@ -1,104 +1,27 @@
 ---
-// components/Logo.astro
-import Link from './Link.astro';
-
-interface Props {
-  width?: number;
-  height?: number;
-  linked?: boolean;
-  className?: string;
-}
-
-const {
-  width = 120,
-  height = 40,
-  linked = true,
-  className = ''
-} = Astro.props;
-
-// Статическое значение для SSR
-const defaultTheme = 'light';
-//const logoPath = `@icons/logo-${defaultTheme}.svg`;
+const basePath = import.meta.env.BASE_URL;
 const theme = typeof document !== 'undefined' 
   ? document.documentElement.getAttribute('data-theme') || 'light'
   : 'light';
 
-const logoPath = `${import.meta.env.BASE_URL}/icons/logo-${theme === 'dark' ? 'dark' : 'light'}.svg`;
+const logoPath = `${basePath}icons/logo-${theme}.svg`;
+// Важно: без слеша после basePath, так как он уже включает его
 ---
 
-{linked ? (
-  <Link href="/" aria-label="На главную" class={`logo-link ${className}`}>
-    <img
-      src={logoPath}
-      alt="Логотип компании"
-      width={width}
-      height={height}
-      class="logo"
-      loading="eager"
-      data-theme={defaultTheme}
-      data-logo
-    />
-  </Link>
-) : (
-  <img
-    src={logoPath}
-    alt="logo company"
-    role="presentation"
-    width={width}
-    height={height}
-    class={`logo ${className}`}
-    loading="eager"
-    data-theme={defaultTheme}
-    data-logo
-  />
-)}
-
-<style lang="scss">
-.logo {
-  display: block;
-  transition: opacity 0.3s ease;
-  object-fit: contain;
-
-  &-link:hover & {
-    opacity: 0.8;
-  }
-
-  @media (max-width: 768px) {
-    width: 100px !important;
-    height: auto !important;
-  }
-}
-</style>
+<img src={logoPath} alt="Логотип" />
 
 <script is:inline>
-// Функция обновления логотипов
-const updateLogos = () => {
+// Автоматическое обновление пути при смене темы
+const updateLogo = () => {
   const theme = document.documentElement.getAttribute('data-theme') || 'light';
-  const logos = document.querySelectorAll('[data-logo]');
-  
-  logos.forEach(logo => {
-    logo.src = `/icons/logo-${theme === 'dark' ? 'dark' : 'light'}.svg`;
-    logo.setAttribute('data-theme', theme);
+  const base = '${import.meta.env.BASE_URL}';
+  document.querySelectorAll('[data-logo]').forEach(logo => {
+    logo.src = `${base}icons/logo-${theme}.svg`;
   });
 };
 
-// Инициализация при загрузке
-document.addEventListener('DOMContentLoaded', () => {
-  // Первоначальная установка
-  updateLogos();
-  
-  // Отслеживание изменений темы
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach(mutation => {
-      if (mutation.attributeName === 'data-theme') {
-        updateLogos();
-      }
-    });
-  });
-
-  observer.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ['data-theme']
-  });
+new MutationObserver(updateLogo).observe(document.documentElement, {
+  attributes: true,
+  attributeFilter: ['data-theme']
 });
 </script>
