@@ -10,5 +10,6 @@ export default defineConfig({
     site: "https://web22des.github.io",
     base: isDev || isPreview || !isGHPages ? "/" : "/astro-template_v-01/",
     trailingSlash: "always",
+    output: "static", // Явно указываем статический режим
     vite: viteConfig,
 });
