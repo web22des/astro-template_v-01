@@ -1706,4 +1706,4 @@ function spreadAttributes(values = {}, _name, { class: scopedClassName } = {}) {
   return markHTMLString(output);
 }
 
-export { NOOP_MIDDLEWARE_HEADER as N, renderTemplate as a, createAstro as b, createComponent as c, addAttribute as d, renderHead as e, renderSlot as f, decodeKey as g, maybeRenderHead as m, renderComponent as r, spreadAttributes as s, unescapeHTML as u };
+export { NOOP_MIDDLEWARE_HEADER as N, renderTemplate as a, addAttribute as b, createComponent as c, createAstro as d, renderHead as e, renderSlot as f, decodeKey as g, maybeRenderHead as m, renderComponent as r, spreadAttributes as s, unescapeHTML as u };
