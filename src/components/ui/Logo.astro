@@ -16,12 +16,9 @@ const {
   className = ''
 } = Astro.props;
 
-// Значение по умолчанию для SSR
-let theme = 'light';
-if (typeof document !== 'undefined') {
-  theme = document.documentElement.getAttribute('data-theme') || 'light';
-}
-const logoPath = `/icons/logo-${theme === 'dark' ? 'dark' : 'light'}.svg`;
+// Статическое значение для SSR
+const defaultTheme = 'light';
+const logoPath = `/icons/logo-${defaultTheme}.svg`;
 ---
 
 {linked ? (
@@ -33,7 +30,8 @@ const logoPath = `/icons/logo-${theme === 'dark' ? 'dark' : 'light'}.svg`;
       height={height}
       class="logo"
       loading="eager"
-      data-theme={theme}
+      data-theme={defaultTheme}
+      data-logo
     />
   </Link>
 ) : (
@@ -45,7 +43,8 @@ const logoPath = `/icons/logo-${theme === 'dark' ? 'dark' : 'light'}.svg`;
     height={height}
     class={`logo ${className}`}
     loading="eager"
-    data-theme={theme}
+    data-theme={defaultTheme}
+    data-logo
   />
 )}
 
@@ -67,19 +66,32 @@ const logoPath = `/icons/logo-${theme === 'dark' ? 'dark' : 'light'}.svg`;
 </style>
 
 <script is:inline>
-// Автоматическое обновление при смене темы
+// Функция обновления логотипов
 const updateLogos = () => {
   const theme = document.documentElement.getAttribute('data-theme') || 'light';
-  document.querySelectorAll('.logo').forEach(logo => {
+  const logos = document.querySelectorAll('[data-logo]');
+  
+  logos.forEach(logo => {
     logo.src = `/icons/logo-${theme === 'dark' ? 'dark' : 'light'}.svg`;
     logo.setAttribute('data-theme', theme);
   });
 };
 
-// Инициализация
+// Инициализация при загрузке
 document.addEventListener('DOMContentLoaded', () => {
+  // Первоначальная установка
   updateLogos();
-  new MutationObserver(updateLogos).observe(document.documentElement, {
+  
+  // Отслеживание изменений темы
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach(mutation => {
+      if (mutation.attributeName === 'data-theme') {
+        updateLogos();
+      }
+    });
+  });
+
+  observer.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ['data-theme']
   });
