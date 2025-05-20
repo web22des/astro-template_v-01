@@ -18,7 +18,12 @@ const {
 
 // Статическое значение для SSR
 const defaultTheme = 'light';
-const logoPath = `@icons/logo-${defaultTheme}.svg`;
+//const logoPath = `@icons/logo-${defaultTheme}.svg`;
+const theme = typeof document !== 'undefined' 
+  ? document.documentElement.getAttribute('data-theme') || 'light'
+  : 'light';
+
+const logoPath = `${import.meta.env.BASE_URL}/icons/logo-${theme === 'dark' ? 'dark' : 'light'}.svg`;
 ---
 
 {linked ? (
@@ -37,7 +42,7 @@ const logoPath = `@icons/logo-${defaultTheme}.svg`;
 ) : (
   <img
     src={logoPath}
-    alt=""
+    alt="logo company"
     role="presentation"
     width={width}
     height={height}
